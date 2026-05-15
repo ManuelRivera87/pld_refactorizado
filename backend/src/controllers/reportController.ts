@@ -3,8 +3,11 @@ import type { AuthenticatedRequest } from "../models/auth.js";
 import { uploadCreditReport } from "../services/creditReportService.js";
 import {
   generateCreditXml,
-  getCreditXmlExportForDownload
+  generateSalesXml,
+  getCreditXmlExportForDownload,
+  getSalesXmlExportForDownload
 } from "../services/creditXmlService.js";
+import { uploadSalesReport } from "../services/salesReportService.js";
 import {
   getReportDashboardMetrics,
   getUserUploadDashboard,
@@ -39,6 +42,29 @@ export const uploadCreditReportController = async (
   response.status(201).json({ summary });
 };
 
+export const uploadSalesReportController = async (
+  request: UploadRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  if (!request.file) {
+    throw new HttpError(400, "XLS file is required");
+  }
+
+  const summary = await uploadSalesReport({
+    anioAfectacion: String(request.body.anioAfectacion ?? ""),
+    companyId: String(request.body.companyId ?? ""),
+    file: request.file,
+    mesAfectacion: String(request.body.mesAfectacion ?? ""),
+    uploadedByUserId: request.user.id
+  });
+
+  response.status(201).json({ summary });
+};
+
 export const generateCreditXmlController = async (
   request: AuthenticatedRequest,
   response: Response
@@ -56,6 +82,23 @@ export const generateCreditXmlController = async (
   response.status(201).json({ summary });
 };
 
+export const generateSalesXmlController = async (
+  request: AuthenticatedRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const summary = await generateSalesXml(
+    String(request.params.uploadId ?? ""),
+    request.user.id,
+    request.user.role
+  );
+
+  response.status(201).json({ summary });
+};
+
 export const downloadCreditXmlController = async (
   request: AuthenticatedRequest,
   response: Response
@@ -65,6 +108,31 @@ export const downloadCreditXmlController = async (
   }
 
   const xmlExport = await getCreditXmlExportForDownload(
+    String(request.params.xmlExportId ?? ""),
+    {
+      userId: request.user.id,
+      role: request.user.role
+    }
+  );
+  const safeFileName = xmlExport.fileName.replace(/[\r\n"]/g, "");
+
+  response.setHeader("Content-Type", "application/xml; charset=utf-8");
+  response.setHeader(
+    "Content-Disposition",
+    `attachment; filename="${safeFileName}"`
+  );
+  response.send(xmlExport.xmlContent);
+};
+
+export const downloadSalesXmlController = async (
+  request: AuthenticatedRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const xmlExport = await getSalesXmlExportForDownload(
     String(request.params.xmlExportId ?? ""),
     {
       userId: request.user.id,

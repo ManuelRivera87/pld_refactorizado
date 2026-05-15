@@ -2,7 +2,7 @@ import { http } from "./http";
 
 export type CreditReportUploadSummary = {
   uploadId: string;
-  reportType: "creditos";
+  reportType: "creditos" | "ventas";
   fileName: string;
   companyId: string;
   companyName: string;
@@ -10,7 +10,7 @@ export type CreditReportUploadSummary = {
   uploadedAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC";
+  tipoActividad: "MPC" | "VEH";
   rowsInserted: number;
   fieldsInserted: number;
   insertedFields: Array<{
@@ -30,7 +30,7 @@ export type CreditXmlExportSummary = {
   createdAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC";
+  tipoActividad: "MPC" | "VEH";
   rowsExported: number;
   xlsHeaders: string[];
 };
@@ -129,6 +129,26 @@ export const uploadCreditReportRequest = async (payload: {
   return data.summary;
 };
 
+export const uploadSalesReportRequest = async (payload: {
+  companyId: string;
+  mesAfectacion: string;
+  anioAfectacion: string;
+  file: File;
+}) => {
+  const formData = new FormData();
+  formData.append("companyId", payload.companyId);
+  formData.append("mesAfectacion", payload.mesAfectacion);
+  formData.append("anioAfectacion", payload.anioAfectacion);
+  formData.append("file", payload.file);
+
+  const { data } = await http.post<{ summary: CreditReportUploadSummary }>(
+    "/informes/ventas/cargar",
+    formData
+  );
+
+  return data.summary;
+};
+
 export const generateCreditXmlRequest = async (uploadId: string) => {
   const { data } = await http.post<{ summary: CreditXmlExportSummary }>(
     `/informes/creditos/${uploadId}/xml`
@@ -137,9 +157,28 @@ export const generateCreditXmlRequest = async (uploadId: string) => {
   return data.summary;
 };
 
+export const generateSalesXmlRequest = async (uploadId: string) => {
+  const { data } = await http.post<{ summary: CreditXmlExportSummary }>(
+    `/informes/ventas/${uploadId}/xml`
+  );
+
+  return data.summary;
+};
+
 export const downloadCreditXmlRequest = async (xmlExportId: string) => {
   const response = await http.get<Blob>(
     `/informes/creditos/xml/${xmlExportId}/download`,
+    {
+      responseType: "blob"
+    }
+  );
+
+  return response.data;
+};
+
+export const downloadSalesXmlRequest = async (xmlExportId: string) => {
+  const response = await http.get<Blob>(
+    `/informes/ventas/xml/${xmlExportId}/download`,
     {
       responseType: "blob"
     }

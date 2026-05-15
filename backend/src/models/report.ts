@@ -1,6 +1,6 @@
 export type CreditReportUploadSummary = {
   uploadId: string;
-  reportType: "creditos";
+  reportType: "creditos" | "ventas";
   fileName: string;
   companyId: string;
   companyName: string;
@@ -8,7 +8,7 @@ export type CreditReportUploadSummary = {
   uploadedAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC";
+  tipoActividad: "MPC" | "VEH";
   rowsInserted: number;
   fieldsInserted: number;
   insertedFields: Array<{
@@ -28,7 +28,7 @@ export type CreditXmlExportSummary = {
   createdAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC";
+  tipoActividad: "MPC" | "VEH";
   rowsExported: number;
   xlsHeaders: string[];
 };

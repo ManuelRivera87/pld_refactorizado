@@ -200,3 +200,77 @@ CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_generated_by_user_id
 
 CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_created_at
   ON credit_xml_exports(created_at);
+
+CREATE TABLE IF NOT EXISTS informe_venta_registros (
+  LIKE informe_credito_registros INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES
+);
+
+ALTER TABLE informe_venta_registros
+  ALTER COLUMN tipo_actividad SET DEFAULT 'VEH';
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS marca_fabricante VARCHAR(40);
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS modelo VARCHAR(40);
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS anio_vehiculo INTEGER;
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS vin VARCHAR(20);
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS repuve VARCHAR(8);
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS placas VARCHAR(12);
+
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS forma_pago INTEGER;
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_report_upload_id
+  ON informe_venta_registros(report_upload_id);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_uploaded_by_user_id
+  ON informe_venta_registros(uploaded_by_user_id);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_company_id
+  ON informe_venta_registros(company_id);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_uploaded_at
+  ON informe_venta_registros(uploaded_at);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_mes_reporte
+  ON informe_venta_registros(mes_reporte);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_periodo_afectacion
+  ON informe_venta_registros(anio_afectacion, mes_afectacion);
+
+CREATE TABLE IF NOT EXISTS sales_xml_exports (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  report_upload_id UUID NOT NULL REFERENCES report_uploads(id) ON DELETE CASCADE,
+  company_id UUID NOT NULL REFERENCES companies(id),
+  generated_by_user_id UUID NOT NULL REFERENCES users(id),
+  file_name VARCHAR(255) NOT NULL,
+  file_path TEXT NOT NULL,
+  mes_afectacion INTEGER NOT NULL,
+  anio_afectacion INTEGER NOT NULL,
+  tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'VEH',
+  xls_headers JSONB NOT NULL,
+  rows_exported INTEGER NOT NULL DEFAULT 0,
+  xml_content TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_report_upload_id
+  ON sales_xml_exports(report_upload_id);
+
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_company_id
+  ON sales_xml_exports(company_id);
+
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_generated_by_user_id
+  ON sales_xml_exports(generated_by_user_id);
+
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_created_at
+  ON sales_xml_exports(created_at);

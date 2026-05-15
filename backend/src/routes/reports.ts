@@ -2,11 +2,14 @@ import { Router } from "express";
 import { upload } from "../config/upload.js";
 import {
   downloadCreditXmlController,
+  downloadSalesXmlController,
   generateCreditXmlController,
+  generateSalesXmlController,
   getReportDashboardMetricsController,
   getMyUploadDashboardController,
   listReportUploadsController,
-  uploadCreditReportController
+  uploadCreditReportController,
+  uploadSalesReportController
 } from "../controllers/reportController.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
@@ -100,6 +103,44 @@ reportsRouter.post(
 
 /**
  * @openapi
+ * /informes/ventas/cargar:
+ *   post:
+ *     summary: Carga un archivo XLS de informe de ventas
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required: [companyId, mesAfectacion, anioAfectacion, file]
+ *             properties:
+ *               companyId:
+ *                 type: string
+ *                 format: uuid
+ *               mesAfectacion:
+ *                 type: integer
+ *                 example: 4
+ *               anioAfectacion:
+ *                 type: integer
+ *                 example: 2025
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Informe de ventas cargado correctamente.
+ */
+reportsRouter.post(
+  "/ventas/cargar",
+  upload.single("file"),
+  asyncHandler(uploadSalesReportController)
+);
+
+/**
+ * @openapi
  * /informes/creditos/{uploadId}/xml:
  *   post:
  *     summary: Genera y guarda el XML SAT de una carga de creditos
@@ -122,6 +163,32 @@ reportsRouter.post(
 reportsRouter.post(
   "/creditos/:uploadId/xml",
   asyncHandler(generateCreditXmlController)
+);
+
+/**
+ * @openapi
+ * /informes/ventas/{uploadId}/xml:
+ *   post:
+ *     summary: Genera y guarda el XML SAT de una carga de ventas
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: uploadId
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       201:
+ *         description: XML de ventas generado correctamente.
+ *       404:
+ *         description: Carga de ventas no encontrada.
+ */
+reportsRouter.post(
+  "/ventas/:uploadId/xml",
+  asyncHandler(generateSalesXmlController)
 );
 
 /**
@@ -152,4 +219,34 @@ reportsRouter.post(
 reportsRouter.get(
   "/creditos/xml/:xmlExportId/download",
   asyncHandler(downloadCreditXmlController)
+);
+
+/**
+ * @openapi
+ * /informes/ventas/xml/{xmlExportId}/download:
+ *   get:
+ *     summary: Descarga un XML de ventas generado
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: xmlExportId
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       200:
+ *         description: Archivo XML.
+ *         content:
+ *           application/xml:
+ *             schema:
+ *               type: string
+ *       404:
+ *         description: XML de ventas no encontrado.
+ */
+reportsRouter.get(
+  "/ventas/xml/:xmlExportId/download",
+  asyncHandler(downloadSalesXmlController)
 );

@@ -3,6 +3,7 @@ import { Download, FileText, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   downloadCreditXmlRequest,
+  downloadSalesXmlRequest,
   listReportUploadsRequest,
   type ReportUploadItem
 } from "../api/reportsApi";
@@ -80,7 +81,10 @@ export function ReportUploadsPage() {
     setDownloadingXmlId(upload.xml_export_id);
 
     try {
-      const blob = await downloadCreditXmlRequest(upload.xml_export_id);
+      const blob =
+        upload.report_type === "ventas"
+          ? await downloadSalesXmlRequest(upload.xml_export_id)
+          : await downloadCreditXmlRequest(upload.xml_export_id);
       downloadBlob(blob, upload.xml_file_name ?? "credito.xml");
     } catch (nextError) {
       setDownloadError(getErrorMessage(nextError));

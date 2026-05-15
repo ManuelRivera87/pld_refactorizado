@@ -3,7 +3,8 @@ import path from "node:path";
 import { database } from "../config/database.js";
 import type { CreditXmlExportSummary } from "../models/report.js";
 import { HttpError } from "../utils/httpError.js";
-import { creditReportColumns } from "./creditReportMapping.js";
+import { creditReportColumns, type CreditReportColumn } from "./creditReportMapping.js";
+import { salesReportColumns } from "./salesReportMapping.js";
 
 type CreditUploadRecord = {
   id: string;
@@ -36,11 +37,47 @@ type CreditXmlAccessScope = {
   role: string;
 };
 
-const xmlRelativeDirectory = "upload/xmlcredito";
-const xmlDirectory = path.join(process.cwd(), "upload", "xmlcredito");
-const mpcNamespace = "http://www.uif.shcp.gob.mx/recepcion/mpc";
-const reportColumns = creditReportColumns.map(({ column }) => column);
-const selectReportColumns = reportColumns.map((column) => `icr.${column}`).join(",\n      ");
+type XmlReportConfig = {
+  columns: CreditReportColumn[];
+  notFoundMessage: string;
+  operationKind: "credit" | "sales";
+  registryTable: "informe_credito_registros" | "informe_venta_registros";
+  reportType: "creditos" | "ventas";
+  schemaFileName: "mpc.xsd" | "veh.xsd";
+  namespace: string;
+  xmlExportTable: "credit_xml_exports" | "sales_xml_exports";
+  xmlFilePrefix: "MPC" | "VEH";
+  xmlRelativeDirectory: "upload/xmlcredito" | "upload/xmlventa";
+};
+
+const creditXmlConfig: XmlReportConfig = {
+  columns: creditReportColumns,
+  notFoundMessage: "Carga de creditos no encontrada",
+  operationKind: "credit",
+  registryTable: "informe_credito_registros",
+  reportType: "creditos",
+  schemaFileName: "mpc.xsd",
+  namespace: "http://www.uif.shcp.gob.mx/recepcion/mpc",
+  xmlExportTable: "credit_xml_exports",
+  xmlFilePrefix: "MPC",
+  xmlRelativeDirectory: "upload/xmlcredito"
+};
+
+const salesXmlConfig: XmlReportConfig = {
+  columns: salesReportColumns,
+  notFoundMessage: "Carga de ventas no encontrada",
+  operationKind: "sales",
+  registryTable: "informe_venta_registros",
+  reportType: "ventas",
+  schemaFileName: "veh.xsd",
+  namespace: "http://www.uif.shcp.gob.mx/recepcion/veh",
+  xmlExportTable: "sales_xml_exports",
+  xmlFilePrefix: "VEH",
+  xmlRelativeDirectory: "upload/xmlventa"
+};
+
+const buildSelectReportColumns = (config: XmlReportConfig) =>
+  config.columns.map(({ column }) => `icr.${column}`).join(",\n      ");
 
 const isBlank = (value: unknown) =>
   value === null || value === undefined || (typeof value === "string" && !value.trim());
@@ -494,7 +531,7 @@ const appendDatosLiquidacion = (xml: XmlBuilder, row: CreditReportRow) => {
   xml.close("datos_liquidacion");
 };
 
-const appendDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
+const appendCreditDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
   xml.open("detalle_operaciones");
   xml.open("datos_operacion");
   appendTag(xml, "fecha_operacion", row.fecha, "date");
@@ -505,6 +542,72 @@ const appendDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
   appendDatosLiquidacion(xml, row);
   xml.close("datos_operacion");
   xml.close("detalle_operaciones");
+};
+
+const appendSalesDatosVehiculo = (xml: XmlBuilder, row: CreditReportRow) => {
+  const columns = ["marca_fabricante", "modelo", "anio_vehiculo", "vin", "repuve", "placas"];
+
+  if (!hasAny(row, columns)) {
+    return;
+  }
+
+  xml.open("tipo_vehiculo");
+  xml.open("datos_vehiculo_terrestre");
+  appendTag(xml, "marca_fabricante", row.marca_fabricante);
+  appendTag(xml, "modelo", row.modelo);
+  appendTag(xml, "anio", row.anio_vehiculo, "integer");
+  appendTag(xml, "vin", row.vin);
+  appendTag(xml, "repuve", row.repuve);
+  appendTag(xml, "placas", row.placas);
+  xml.close("datos_vehiculo_terrestre");
+  xml.close("tipo_vehiculo");
+};
+
+const appendSalesDatosLiquidacion = (xml: XmlBuilder, row: CreditReportRow) => {
+  const columns = [
+    "fecha_pago",
+    "forma_pago",
+    "instrumento_monetario",
+    "moneda",
+    "monto_operacion"
+  ];
+
+  if (!hasAny(row, columns)) {
+    return;
+  }
+
+  xml.open("datos_liquidacion");
+  appendTag(xml, "fecha_pago", row.fecha_pago, "date");
+  appendTag(xml, "forma_pago", row.forma_pago, "integer");
+  appendTag(xml, "instrumento_monetario", row.instrumento_monetario, "integer");
+  appendTag(xml, "moneda", row.moneda, "integer");
+  appendTag(xml, "monto_operacion", row.monto_operacion, "amount");
+  xml.close("datos_liquidacion");
+};
+
+const appendSalesDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
+  xml.open("detalle_operaciones");
+  xml.open("datos_operacion");
+  appendTag(xml, "fecha_operacion", row.fecha, "date");
+  appendTag(xml, "codigo_postal", row.codigo_postal_agencia);
+  appendTag(xml, "tipo_operacion", row.tipo_operacion, "integer");
+  appendSalesDatosVehiculo(xml, row);
+  appendSalesDatosLiquidacion(xml, row);
+  xml.close("datos_operacion");
+  xml.close("detalle_operaciones");
+};
+
+const appendDetalleOperaciones = (
+  xml: XmlBuilder,
+  row: CreditReportRow,
+  config: XmlReportConfig
+) => {
+  if (config.operationKind === "sales") {
+    appendSalesDetalleOperaciones(xml, row);
+    return;
+  }
+
+  appendCreditDetalleOperaciones(xml, row);
 };
 
 const buildReferenceAviso = (row: CreditReportRow) => {
@@ -523,7 +626,7 @@ const buildReferenceAviso = (row: CreditReportRow) => {
   return reference;
 };
 
-const appendAviso = (xml: XmlBuilder, row: CreditReportRow) => {
+const appendAviso = (xml: XmlBuilder, row: CreditReportRow, config: XmlReportConfig) => {
   xml.open("aviso");
   appendTag(xml, "referencia_aviso", buildReferenceAviso(row));
 
@@ -545,11 +648,15 @@ const appendAviso = (xml: XmlBuilder, row: CreditReportRow) => {
 
   appendPersonaAviso(xml, row);
   appendBeneficiario(xml, row);
-  appendDetalleOperaciones(xml, row);
+  appendDetalleOperaciones(xml, row, config);
   xml.close("aviso");
 };
 
-const buildCreditXml = (upload: CreditUploadRecord, rows: CreditReportRow[]) => {
+const buildCreditXml = (
+  upload: CreditUploadRecord,
+  rows: CreditReportRow[],
+  config: XmlReportConfig
+) => {
   const firstRow = rows[0];
   const reportMonth =
     firstRow?.mes_reporte ?? `${upload.anio_afectacion}${pad(upload.mes_afectacion)}`;
@@ -557,17 +664,17 @@ const buildCreditXml = (upload: CreditUploadRecord, rows: CreditReportRow[]) => 
 
   xml.open("archivo", {
     "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-    "xsi:schemaLocation": `${mpcNamespace} mpc.xsd`,
-    xmlns: mpcNamespace
+    "xsi:schemaLocation": `${config.namespace} ${config.schemaFileName}`,
+    xmlns: config.namespace
   });
   xml.open("informe");
   appendTag(xml, "mes_reportado", reportMonth);
   xml.open("sujeto_obligado");
   appendTag(xml, "clave_sujeto_obligado", firstRow?.clave_sujeto_obligado);
-  appendTag(xml, "clave_actividad", firstRow?.clave_actividad ?? upload.tipo_actividad);
+  appendTag(xml, "clave_actividad", config.xmlFilePrefix);
   xml.close("sujeto_obligado");
 
-  rows.forEach((row) => appendAviso(xml, row));
+  rows.forEach((row) => appendAviso(xml, row, config));
 
   xml.close("informe");
   xml.close("archivo");
@@ -586,9 +693,9 @@ const sanitizeFileSegment = (value: string) =>
     .replace(/^_+|_+$/g, "")
     .slice(0, 70);
 
-const buildXlsHeadersPayload = () => ({
-  headers: creditReportColumns.map(({ header }) => header),
-  mapping: creditReportColumns.map(({ column, header, type }) => ({
+const buildXlsHeadersPayload = (config: XmlReportConfig) => ({
+  headers: config.columns.map(({ header }) => header),
+  mapping: config.columns.map(({ column, header, type }) => ({
     header,
     column,
     type
@@ -596,7 +703,8 @@ const buildXlsHeadersPayload = () => ({
   generatedFields: ["uploaded_by_user_id", "company_id", "uploaded_at"]
 });
 
-export const generateCreditXml = async (
+const generateXml = async (
+  config: XmlReportConfig,
   uploadId: string,
   generatedByUserId: string,
   generatedByUserRole: string
@@ -614,21 +722,21 @@ export const generateCreditXml = async (
     FROM report_uploads ru
     INNER JOIN companies c ON c.id = ru.company_id
     WHERE ru.id = $1
-      AND ru.report_type = 'creditos'
-      AND ($2::boolean OR ru.uploaded_by_user_id = $3)`,
-    [uploadId, canAccessAllUploads, generatedByUserId]
+      AND ru.report_type = $2
+      AND ($3::boolean OR ru.uploaded_by_user_id = $4)`,
+    [uploadId, config.reportType, canAccessAllUploads, generatedByUserId]
   );
 
   const upload = uploadResult.rows[0];
 
   if (!upload) {
-    throw new HttpError(404, "Carga de creditos no encontrada");
+    throw new HttpError(404, config.notFoundMessage);
   }
 
   const rowsResult = await database.query<CreditReportRow>(
     `SELECT
-      ${selectReportColumns}
-    FROM informe_credito_registros icr
+      ${buildSelectReportColumns(config)}
+    FROM ${config.registryTable} icr
     WHERE icr.report_upload_id = $1
     ORDER BY icr.referencia_aviso NULLS LAST, icr.fecha NULLS LAST, icr.id`,
     [uploadId]
@@ -639,18 +747,19 @@ export const generateCreditXml = async (
   }
 
   const createdAt = new Date();
-  const xmlContent = buildCreditXml(upload, rowsResult.rows);
-  const fileName = `MPC_${upload.anio_afectacion}${pad(
+  const xmlContent = buildCreditXml(upload, rowsResult.rows, config);
+  const fileName = `${config.xmlFilePrefix}_${upload.anio_afectacion}${pad(
     upload.mes_afectacion
   )}_${formatFileTimestamp(createdAt)}_${sanitizeFileSegment(upload.company_name)}.xml`;
-  const relativePath = `${xmlRelativeDirectory}/${fileName}`;
+  const relativePath = `${config.xmlRelativeDirectory}/${fileName}`;
+  const xmlDirectory = path.join(process.cwd(), ...config.xmlRelativeDirectory.split("/"));
   const absolutePath = path.join(xmlDirectory, fileName);
 
   await mkdir(xmlDirectory, { recursive: true });
   await writeFile(absolutePath, xmlContent, "utf8");
 
   const insertResult = await database.query<CreditXmlExportRecord>(
-    `INSERT INTO credit_xml_exports (
+    `INSERT INTO ${config.xmlExportTable} (
       report_upload_id,
       company_id,
       generated_by_user_id,
@@ -675,7 +784,7 @@ export const generateCreditXml = async (
       upload.mes_afectacion,
       upload.anio_afectacion,
       upload.tipo_actividad,
-      JSON.stringify(buildXlsHeadersPayload()),
+      JSON.stringify(buildXlsHeadersPayload(config)),
       rowsResult.rowCount,
       xmlContent,
       createdAt
@@ -695,19 +804,32 @@ export const generateCreditXml = async (
     createdAt: exportRecord.created_at.toISOString(),
     mesAfectacion: upload.mes_afectacion,
     anioAfectacion: upload.anio_afectacion,
-    tipoActividad: "MPC",
+    tipoActividad: config.xmlFilePrefix,
     rowsExported: exportRecord.rows_exported,
-    xlsHeaders: creditReportColumns.map(({ header }) => header)
+    xlsHeaders: config.columns.map(({ header }) => header)
   };
 };
 
-export const getCreditXmlExportForDownload = async (
+export const generateCreditXml = (
+  uploadId: string,
+  generatedByUserId: string,
+  generatedByUserRole: string
+) => generateXml(creditXmlConfig, uploadId, generatedByUserId, generatedByUserRole);
+
+export const generateSalesXml = (
+  uploadId: string,
+  generatedByUserId: string,
+  generatedByUserRole: string
+) => generateXml(salesXmlConfig, uploadId, generatedByUserId, generatedByUserRole);
+
+const getXmlExportForDownload = async (
+  config: XmlReportConfig,
   xmlExportId: string,
   scope: CreditXmlAccessScope
 ) => {
   const result = await database.query<CreditXmlDownloadRecord>(
     `SELECT cxe.id, cxe.file_name, cxe.xml_content
-    FROM credit_xml_exports cxe
+    FROM ${config.xmlExportTable} cxe
     INNER JOIN report_uploads ru ON ru.id = cxe.report_upload_id
     WHERE cxe.id = $1
       AND ($2::boolean OR ru.uploaded_by_user_id = $3)`,
@@ -716,7 +838,12 @@ export const getCreditXmlExportForDownload = async (
   const xmlExport = result.rows[0];
 
   if (!xmlExport) {
-    throw new HttpError(404, "XML de creditos no encontrado");
+    throw new HttpError(
+      404,
+      config.reportType === "ventas"
+        ? "XML de ventas no encontrado"
+        : "XML de creditos no encontrado"
+    );
   }
 
   return {
@@ -725,3 +852,13 @@ export const getCreditXmlExportForDownload = async (
     xmlContent: xmlExport.xml_content
   };
 };
+
+export const getCreditXmlExportForDownload = (
+  xmlExportId: string,
+  scope: CreditXmlAccessScope
+) => getXmlExportForDownload(creditXmlConfig, xmlExportId, scope);
+
+export const getSalesXmlExportForDownload = (
+  xmlExportId: string,
+  scope: CreditXmlAccessScope
+) => getXmlExportForDownload(salesXmlConfig, xmlExportId, scope);

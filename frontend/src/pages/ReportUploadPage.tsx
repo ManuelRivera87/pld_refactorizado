@@ -10,8 +10,11 @@ import { type FormEvent, useEffect, useMemo, useState } from "react";
 import { listCompaniesRequest, type CompanyItem } from "../api/companiesApi";
 import {
   downloadCreditXmlRequest,
+  downloadSalesXmlRequest,
   generateCreditXmlRequest,
+  generateSalesXmlRequest,
   uploadCreditReportRequest,
+  uploadSalesReportRequest,
   type CreditReportUploadSummary,
   type CreditXmlExportSummary,
   type CreditReportValidationError
@@ -113,6 +116,9 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
 
   const labels = reportLabels[kind];
   const isCreditReport = kind === "creditos";
+  const isSalesReport = kind === "ventas";
+  const isUploadEnabledReport = isCreditReport || isSalesReport;
+  const activityType = isSalesReport ? "VEH" : "MPC";
   const selectedCompany = useMemo(
     () => companies.find((company) => company.id === companyId),
     [companies, companyId]
@@ -151,12 +157,12 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
       return;
     }
 
-    if (isCreditReport && (!mesAfectacion || !anioAfectacion)) {
+    if (isUploadEnabledReport && (!mesAfectacion || !anioAfectacion)) {
       setError("Selecciona mes y anio de afectacion.");
       return;
     }
 
-    if (!isCreditReport) {
+    if (!isUploadEnabledReport) {
       setSuccess(
         `Archivo ${file.name} listo para informe de ${kind} de ${selectedCompany?.name}.`
       );
@@ -166,16 +172,23 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     setIsUploading(true);
 
     try {
-      const summary = await uploadCreditReportRequest({
-        anioAfectacion,
-        companyId,
-        file,
-        mesAfectacion
-      });
+      const summary = isSalesReport
+        ? await uploadSalesReportRequest({
+            anioAfectacion,
+            companyId,
+            file,
+            mesAfectacion
+          })
+        : await uploadCreditReportRequest({
+            anioAfectacion,
+            companyId,
+            file,
+            mesAfectacion
+          });
       setUploadSummary(summary);
       setXmlSummary(null);
       setSuccess(
-        `Informe de creditos cargado correctamente para ${summary.companyName}.`
+        `Informe de ${kind} cargado correctamente para ${summary.companyName}.`
       );
     } catch (nextError) {
       setError(getErrorMessage(nextError));
@@ -196,7 +209,9 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     setIsGeneratingXml(true);
 
     try {
-      const summary = await generateCreditXmlRequest(uploadSummary.uploadId);
+      const summary = isSalesReport
+        ? await generateSalesXmlRequest(uploadSummary.uploadId)
+        : await generateCreditXmlRequest(uploadSummary.uploadId);
       setXmlSummary(summary);
     } catch (nextError) {
       setXmlError(getErrorMessage(nextError));
@@ -214,7 +229,9 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     setIsDownloadingXml(true);
 
     try {
-      const blob = await downloadCreditXmlRequest(xmlSummary.id);
+      const blob = isSalesReport
+        ? await downloadSalesXmlRequest(xmlSummary.id)
+        : await downloadCreditXmlRequest(xmlSummary.id);
       downloadBlob(blob, xmlSummary.fileName);
     } catch (nextError) {
       setXmlDownloadError(getErrorMessage(nextError));
@@ -265,7 +282,7 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
             </select>
           </label>
 
-          {isCreditReport ? (
+          {isUploadEnabledReport ? (
             <div className="report-period-grid">
               <label>
                 <span>Mes afectacion</span>
@@ -301,7 +318,7 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
 
               <div className="fixed-report-field">
                 <span>Tipo de actividad</span>
-                <strong>MPC</strong>
+                <strong>{activityType}</strong>
               </div>
             </div>
           ) : null}
@@ -451,8 +468,8 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
                   <span>{isGeneratingXml ? "Generando XML..." : "Generar XML"}</span>
                 </button>
                 <p>
-                  El XML se genera con el formato SAT de creditos y queda guardado
-                  en upload/xmlcredito.
+                  El XML se genera con el formato SAT de {kind} y queda guardado
+                  en {isSalesReport ? "upload/xmlventa" : "upload/xmlcredito"}.
                 </p>
               </div>
 
