@@ -6,6 +6,7 @@ import {
   getCreditXmlExportForDownload
 } from "../services/creditXmlService.js";
 import {
+  getReportDashboardMetrics,
   getUserUploadDashboard,
   listReportUploads
 } from "../services/reportUploadService.js";
@@ -48,7 +49,8 @@ export const generateCreditXmlController = async (
 
   const summary = await generateCreditXml(
     String(request.params.uploadId ?? ""),
-    request.user.id
+    request.user.id,
+    request.user.role
   );
 
   response.status(201).json({ summary });
@@ -63,7 +65,11 @@ export const downloadCreditXmlController = async (
   }
 
   const xmlExport = await getCreditXmlExportForDownload(
-    String(request.params.xmlExportId ?? "")
+    String(request.params.xmlExportId ?? ""),
+    {
+      userId: request.user.id,
+      role: request.user.role
+    }
   );
   const safeFileName = xmlExport.fileName.replace(/[\r\n"]/g, "");
 
@@ -76,12 +82,35 @@ export const downloadCreditXmlController = async (
 };
 
 export const listReportUploadsController = async (
-  _request: AuthenticatedRequest,
+  request: AuthenticatedRequest,
   response: Response
 ) => {
-  const uploads = await listReportUploads();
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const uploads = await listReportUploads({
+    userId: request.user.id,
+    role: request.user.role
+  });
 
   response.json({ uploads });
+};
+
+export const getReportDashboardMetricsController = async (
+  request: AuthenticatedRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const dashboard = await getReportDashboardMetrics({
+    userId: request.user.id,
+    role: request.user.role
+  });
+
+  response.json({ dashboard });
 };
 
 export const getMyUploadDashboardController = async (

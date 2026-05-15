@@ -66,6 +66,41 @@ export type MyUploadDashboard = {
   last_rows_inserted: number | null;
 };
 
+export type ReportTypeMetric = {
+  report_type: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+  total_xml_exports: number;
+  last_upload_at: string | null;
+};
+
+export type TopUploadUser = {
+  user_id: string;
+  email: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+  last_upload_at: string | null;
+};
+
+export type UploadsByDateMetric = {
+  upload_date: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+};
+
+export type ReportDashboardMetrics = {
+  summary: {
+    total_uploads: number;
+    total_rows_inserted: number;
+    total_xml_exports: number;
+    last_upload_at: string | null;
+  };
+  by_report_type: ReportTypeMetric[];
+  top_users: TopUploadUser[];
+  latest_uploads: ReportUploadItem[];
+  uploads_by_date: UploadsByDateMetric[];
+};
+
 export type CreditReportValidationError = {
   rowNumber: number;
   field: string;
@@ -119,6 +154,14 @@ export const listReportUploadsRequest = async () => {
   );
 
   return data.uploads;
+};
+
+export const getReportDashboardMetricsRequest = async () => {
+  const { data } = await http.get<{ dashboard: ReportDashboardMetrics }>(
+    "/informes/dashboard"
+  );
+
+  return data.dashboard;
 };
 
 export const getMyUploadDashboardRequest = async () => {

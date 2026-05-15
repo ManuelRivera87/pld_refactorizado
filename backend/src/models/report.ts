@@ -54,6 +54,43 @@ export type ReportUploadListItem = {
   xml_rows_exported: number | null;
 };
 
+export type ReportTypeMetric = {
+  report_type: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+  total_xml_exports: number;
+  last_upload_at: Date | null;
+};
+
+export type TopUploadUser = {
+  user_id: string;
+  email: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+  last_upload_at: Date | null;
+};
+
+export type UploadsByDateMetric = {
+  upload_date: string;
+  total_uploads: number;
+  total_rows_inserted: number;
+};
+
+export type ReportDashboardSummary = {
+  total_uploads: number;
+  total_rows_inserted: number;
+  total_xml_exports: number;
+  last_upload_at: Date | null;
+};
+
+export type ReportDashboardMetrics = {
+  summary: ReportDashboardSummary;
+  by_report_type: ReportTypeMetric[];
+  top_users: TopUploadUser[];
+  latest_uploads: ReportUploadListItem[];
+  uploads_by_date: UploadsByDateMetric[];
+};
+
 export type UserUploadDashboard = {
   total_uploads: number;
   total_rows_inserted: number;

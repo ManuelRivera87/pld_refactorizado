@@ -9,14 +9,23 @@ import {
   LayoutDashboard,
   LogOut,
   UserRound,
-  Users
+  Users,
+  type LucideIcon
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { BrandLogo } from "../components/BrandLogo";
 
-const navigationItems = [
+type NavigationItem = {
+  adminOnly?: boolean;
+  children?: NavigationItem[];
+  icon: LucideIcon;
+  label: string;
+  path: string;
+};
+
+const navigationItems: NavigationItem[] = [
   {
     label: "Inicio",
     path: "/",
@@ -25,12 +34,14 @@ const navigationItems = [
   {
     label: "Administracion de usuarios",
     path: "/administracion-usuarios",
-    icon: Users
+    icon: Users,
+    adminOnly: true
   },
   {
     label: "Catalogos",
     path: "/catalogos",
     icon: BookOpen,
+    adminOnly: true,
     children: [
       {
         label: "Empresas",
@@ -74,12 +85,20 @@ const navigationItems = [
   {
     label: "Reportes",
     path: "/reportes",
-    icon: BarChart3
+    icon: BarChart3,
+    adminOnly: true
   }
 ];
 
 export function MainLayout({ children }: { children: ReactNode }) {
   const { logout, session } = useAuth();
+  const isAdmin = session?.user.role === "admin";
+  const visibleNavigationItems = navigationItems
+    .filter((item) => isAdmin || !item.adminOnly)
+    .map((item) => ({
+      ...item,
+      children: item.children?.filter((child) => isAdmin || !child.adminOnly)
+    }));
 
   return (
     <div className="main-layout">
@@ -90,7 +109,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
         </div>
 
         <nav className="sidebar-nav" aria-label="Menu principal">
-          {navigationItems.map(({ children, icon: Icon, label, path }) => {
+          {visibleNavigationItems.map(({ children, icon: Icon, label, path }) => {
             if (children) {
               return (
                 <div className="sidebar-group" key={path}>

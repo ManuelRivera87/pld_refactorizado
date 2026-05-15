@@ -6,6 +6,7 @@ import {
   listCompaniesController,
   updateCompanyController
 } from "../controllers/companyController.js";
+import { requireRole } from "../middlewares/requireRole.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const companiesRouter = Router();
@@ -47,7 +48,7 @@ export const companiesRouter = Router();
 companiesRouter
   .route("/")
   .get(asyncHandler(listCompaniesController))
-  .post(asyncHandler(createCompanyController));
+  .post(requireRole("admin"), asyncHandler(createCompanyController));
 
 /**
  * @openapi
@@ -112,5 +113,5 @@ companiesRouter
 companiesRouter
   .route("/:id")
   .get(asyncHandler(getCompanyController))
-  .put(asyncHandler(updateCompanyController))
-  .delete(asyncHandler(deleteCompanyController));
+  .put(requireRole("admin"), asyncHandler(updateCompanyController))
+  .delete(requireRole("admin"), asyncHandler(deleteCompanyController));

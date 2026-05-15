@@ -17,15 +17,18 @@ const protectedRoutes = [
   },
   {
     path: "/administracion-usuarios",
-    element: <UserAdministrationPage />
+    element: <UserAdministrationPage />,
+    allowedRoles: ["admin"]
   },
   {
     path: "/catalogos",
-    element: <Navigate to="/catalogos/empresas" replace />
+    element: <Navigate to="/catalogos/empresas" replace />,
+    allowedRoles: ["admin"]
   },
   {
     path: "/catalogos/empresas",
-    element: <CompanyCatalogPage />
+    element: <CompanyCatalogPage />,
+    allowedRoles: ["admin"]
   },
   {
     path: "/mi-perfil",
@@ -53,7 +56,8 @@ const protectedRoutes = [
   },
   {
     path: "/reportes",
-    element: <PlaceholderPage eyebrow="Reporteria" title="Reportes" />
+    element: <PlaceholderPage eyebrow="Reporteria" title="Reportes" />,
+    allowedRoles: ["admin"]
   }
 ];
 
@@ -64,7 +68,7 @@ export function AppRoutes() {
       {protectedRoutes.map((route) => (
         <Route
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRoles={route.allowedRoles}>
               <MainLayout>{route.element}</MainLayout>
             </ProtectedRoute>
           }

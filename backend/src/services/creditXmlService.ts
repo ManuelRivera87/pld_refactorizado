@@ -31,6 +31,11 @@ type CreditXmlDownloadRecord = {
   xml_content: string;
 };
 
+type CreditXmlAccessScope = {
+  userId: string;
+  role: string;
+};
+
 const xmlRelativeDirectory = "upload/xmlcredito";
 const xmlDirectory = path.join(process.cwd(), "upload", "xmlcredito");
 const mpcNamespace = "http://www.uif.shcp.gob.mx/recepcion/mpc";
@@ -593,8 +598,10 @@ const buildXlsHeadersPayload = () => ({
 
 export const generateCreditXml = async (
   uploadId: string,
-  generatedByUserId: string
+  generatedByUserId: string,
+  generatedByUserRole: string
 ): Promise<CreditXmlExportSummary> => {
+  const canAccessAllUploads = generatedByUserRole === "admin";
   const uploadResult = await database.query<CreditUploadRecord>(
     `SELECT
       ru.id,
@@ -607,8 +614,9 @@ export const generateCreditXml = async (
     FROM report_uploads ru
     INNER JOIN companies c ON c.id = ru.company_id
     WHERE ru.id = $1
-      AND ru.report_type = 'creditos'`,
-    [uploadId]
+      AND ru.report_type = 'creditos'
+      AND ($2::boolean OR ru.uploaded_by_user_id = $3)`,
+    [uploadId, canAccessAllUploads, generatedByUserId]
   );
 
   const upload = uploadResult.rows[0];
@@ -693,12 +701,17 @@ export const generateCreditXml = async (
   };
 };
 
-export const getCreditXmlExportForDownload = async (xmlExportId: string) => {
+export const getCreditXmlExportForDownload = async (
+  xmlExportId: string,
+  scope: CreditXmlAccessScope
+) => {
   const result = await database.query<CreditXmlDownloadRecord>(
-    `SELECT id, file_name, xml_content
-    FROM credit_xml_exports
-    WHERE id = $1`,
-    [xmlExportId]
+    `SELECT cxe.id, cxe.file_name, cxe.xml_content
+    FROM credit_xml_exports cxe
+    INNER JOIN report_uploads ru ON ru.id = cxe.report_upload_id
+    WHERE cxe.id = $1
+      AND ($2::boolean OR ru.uploaded_by_user_id = $3)`,
+    [xmlExportId, scope.role === "admin", scope.userId]
   );
   const xmlExport = result.rows[0];
 

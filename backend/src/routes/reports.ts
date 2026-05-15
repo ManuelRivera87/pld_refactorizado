@@ -3,6 +3,7 @@ import { upload } from "../config/upload.js";
 import {
   downloadCreditXmlController,
   generateCreditXmlController,
+  getReportDashboardMetricsController,
   getMyUploadDashboardController,
   listReportUploadsController,
   uploadCreditReportController
@@ -26,6 +27,23 @@ export const reportsRouter = Router();
 reportsRouter.get(
   "/mis-cargas/resumen",
   asyncHandler(getMyUploadDashboardController)
+);
+
+/**
+ * @openapi
+ * /informes/dashboard:
+ *   get:
+ *     summary: Obtiene metricas generales de cargas de informes
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Metricas por tipo de informe, usuarios y ultimas cargas.
+ */
+reportsRouter.get(
+  "/dashboard",
+  asyncHandler(getReportDashboardMetricsController)
 );
 
 /**

@@ -3,6 +3,7 @@ import { authRouter } from "./auth.js";
 import { companiesRouter } from "./companies.js";
 import { healthRouter } from "./health.js";
 import { authenticate } from "../middlewares/authenticate.js";
+import { requireRole } from "../middlewares/requireRole.js";
 import { reportsRouter } from "./reports.js";
 import { usersRouter } from "./users.js";
 
@@ -13,4 +14,4 @@ apiRouter.use("/companies", authenticate, companiesRouter);
 apiRouter.use("/empresas", authenticate, companiesRouter);
 apiRouter.use("/health", healthRouter);
 apiRouter.use("/informes", authenticate, reportsRouter);
-apiRouter.use("/users", authenticate, usersRouter);
+apiRouter.use("/users", authenticate, requireRole("admin"), usersRouter);
