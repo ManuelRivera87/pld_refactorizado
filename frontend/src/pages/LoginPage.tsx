@@ -55,9 +55,13 @@ export function LoginPage() {
     <AuthLayout>
       <div className="login-copy">
         <BrandLogo />
-        <p className="eyebrow">Sistema PLD</p>
-        <h1>Acceso corporativo</h1>
-        <p>Ingresa con tus credenciales Autocom para continuar.</p>
+        <p className="eyebrow">Portal corporativo PLD</p>
+        <h1>Acceso a cumplimiento Autocom</h1>
+        <p>
+          Ingresa con tu cuenta corporativa para operar cargas, validaciones y
+          generacion de XML.
+        </p>
+        <small className="login-note">Acceso exclusivo para usuarios @autocom.mx</small>
       </div>
 
       <form className="login-form" onSubmit={handleSubmit}>

@@ -25,6 +25,25 @@ type RowContext = {
   errors: SalesReportValidationError[];
 };
 
+const modificatorioColumns = ["folio_modificatorio", "descripcion_mod"] as const;
+const beneficiarioColumns = [
+  "tipo_persona_beneficiario",
+  "nombre_beneficiario",
+  "ape_paterno_beneficiario",
+  "ape_materno_beneficiario",
+  "fecha_nacimiento_beneficiario",
+  "rfc_beneficiario",
+  "curp_beneficiario",
+  "pais_nacionalidad_beneficiario",
+  "denominacion_razon_moral_beneficiario",
+  "fecha_constitucion_moral_beneficiario",
+  "rfc_moral_beneficiario",
+  "pais_moral_beneficiario",
+  "denominacion_razon_fideicomiso_beneficiario",
+  "rfc_fideicomiso_beneficiario",
+  "id_fideicomiso_beneficiario"
+] as const;
+
 const textLetters = "A-Z\\u00d1\\u00c1\\u00c9\\u00cd\\u00d3\\u00da\\u00dc";
 const rfcLetters = "A-Z\\u00d1&";
 
@@ -227,6 +246,24 @@ const validateRule = (
   }
 };
 
+const validateFixedValue = (
+  context: RowContext,
+  column: string,
+  expectedValue: string
+) => {
+  const value = getValue(context, column);
+
+  if (isBlank(value)) {
+    return;
+  }
+
+  const text = toValidationText(value).toUpperCase();
+
+  if (text !== expectedValue) {
+    addError(context, column, `Valor invalido. Debe ser ${expectedValue}`, value);
+  }
+};
+
 const parseInteger = (context: RowContext, column: string) => {
   const value = getValue(context, column);
   const text = toValidationText(value);
@@ -281,6 +318,31 @@ const validateRequiredEither = (
   }
 };
 
+const hasAnyValue = (context: RowContext, columns: readonly string[]) =>
+  columns.some((column) => !isBlank(getValue(context, column)));
+
+const validateRequiredWhen = (
+  context: RowContext,
+  column: string,
+  condition: boolean,
+  message: string
+) => {
+  if (condition && isBlank(getValue(context, column))) {
+    addError(context, column, message);
+  }
+};
+
+const validateMustBeBlankWhen = (
+  context: RowContext,
+  column: string,
+  condition: boolean,
+  message: string
+) => {
+  if (condition && !isBlank(getValue(context, column))) {
+    addError(context, column, message);
+  }
+};
+
 export const validateSalesReportRows = (
   dataRows: unknown[][],
   headerIndex: Map<string, number>
@@ -298,9 +360,11 @@ export const validateSalesReportRows = (
     validateRule(context, "mes_reporte", rules.mesReportado, true);
     validateRule(context, "clave_sujeto_obligado", rules.claveSo, true);
     validateRule(context, "clave_actividad", rules.alfanumerico3, true);
+    validateFixedValue(context, "clave_actividad", "VEH");
     validateRule(context, "referencia_aviso", rules.referenciaAviso, true);
-    validateRule(context, "folio_modificatorio", rules.folioModificacion);
-    validateRule(context, "descripcion_mod", rules.descripcion3000);
+    const hasModificatorioData = hasAnyValue(context, modificatorioColumns);
+    validateRule(context, "folio_modificatorio", rules.folioModificacion, hasModificatorioData);
+    validateRule(context, "descripcion_mod", rules.descripcion3000, hasModificatorioData);
     validateRule(context, "prioridad", rules.prioridad, true);
     validateRule(context, "tipo_alerta", rules.tipoAlerta, true);
     validateRule(context, "descripcion_alerta", rules.descripcion3000, true);
@@ -391,6 +455,23 @@ export const validateSalesReportRows = (
     validateRule(context, "telefono_clave_pais_aviso", rules.pais, true);
     validateRule(context, "numero_telefono_aviso", rules.telefono, true);
     validateRule(context, "correo_electronico_aviso", rules.correo);
+    validateRequiredWhen(
+      context,
+      "numero_telefono_aviso",
+      !isBlank(getValue(context, "correo_electronico_aviso")),
+      "Debe informar telefono cuando capture correo electronico"
+    );
+
+    const hasBeneficiarioData = hasAnyValue(
+      context,
+      beneficiarioColumns.filter((column) => column !== "tipo_persona_beneficiario")
+    );
+    validateRequiredWhen(
+      context,
+      "tipo_persona_beneficiario",
+      hasBeneficiarioData,
+      "Debe informar el tipo de persona del beneficiario"
+    );
 
     const tipoPersonaBeneficiario = validateEnum(
       context,
@@ -429,20 +510,27 @@ export const validateSalesReportRows = (
 
     validateRule(context, "fecha", rules.fecha, true);
     validateRule(context, "codigo_postal_agencia", rules.cp, true);
-    validateRule(context, "nombre_sucursal", rules.descripcion254, true);
+    validateRule(context, "nombre_sucursal", rules.descripcion254);
     validateRule(context, "tipo_operacion", rules.digito3a4, true);
     validateRule(context, "marca_fabricante", rules.vehiculo40, true);
     validateRule(context, "modelo", rules.vehiculo40, true);
     validateRule(context, "anio_vehiculo", rules.digito4, true);
     validateRule(context, "vin", rules.vin, true);
-    validateRule(context, "repuve", rules.repuve);
-    validateRule(context, "placas", rules.placas);
+    validateRule(context, "repuve", rules.repuve, true);
+    validateRule(context, "placas", rules.placas, true);
     validateRule(context, "fecha_pago", rules.fecha, true);
     validateRule(context, "forma_pago", rules.digito1, true);
+    const formaPago = parseInteger(context, "forma_pago");
 
-    if (parseInteger(context, "forma_pago") !== 3) {
+    if (formaPago !== 3) {
       validateRule(context, "instrumento_monetario", rules.digito1a2, true);
     }
+    validateMustBeBlankWhen(
+      context,
+      "instrumento_monetario",
+      formaPago === 3,
+      "No debe informar instrumento monetario cuando la forma de pago es 3"
+    );
 
     validateRule(context, "moneda", rules.digito1a3, true);
     validateRule(context, "monto_operacion", rules.monto, true);

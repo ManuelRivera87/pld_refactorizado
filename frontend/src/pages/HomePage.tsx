@@ -30,6 +30,9 @@ const reportTypeIcons = {
   arrendamientos: FileText
 };
 
+const getReportTypeClass = (reportType: string) =>
+  `report-type-${reportType.toLowerCase()}`;
+
 const getErrorMessage = (error: unknown) => {
   if (axios.isAxiosError<{ message?: string }>(error)) {
     return error.response?.data?.message ?? "No se pudieron cargar las metricas.";
@@ -112,25 +115,44 @@ export function HomePage() {
   return (
     <div className="home-dashboard-page">
       <section className="home-hero-panel">
-        <div>
-          <p className="eyebrow">Inicio</p>
-          <h2>Mediciones de cargas PLD</h2>
+        <div className="home-hero-copy">
+          <p className="eyebrow">Portal PLD Grupo Autocom</p>
+          <h2>Prevencion de lavado de dinero y control operativo</h2>
           <p>
             Sesion iniciada como <strong>{session?.user.email}</strong>.{" "}
             {isAdmin
               ? "Consulta el comportamiento reciente por tipo de informe, usuario y fecha."
               : "Consulta tus propias cargas, mediciones y actividad reciente."}
           </p>
+          <div className="home-hero-tag-list" aria-label="Capacidades principales">
+            <span>Informes corporativos</span>
+            <span>Validacion por archivo</span>
+            <span>XML SAT</span>
+          </div>
         </div>
-        <button
-          className="ghost-button compact-button"
-          disabled={isLoading}
-          onClick={() => void loadMetrics()}
-          type="button"
-        >
-          <RefreshCw aria-hidden="true" size={17} strokeWidth={2} />
-          <span>{isLoading ? "Actualizando..." : "Actualizar"}</span>
-        </button>
+
+        <div className="home-hero-aside">
+          <div className="home-hero-status">
+            <div>
+              <span>Vista</span>
+              <strong>{isAdmin ? "Administracion integral" : "Operacion personal"}</strong>
+            </div>
+            <div>
+              <span>Ultima carga</span>
+              <strong>{formatDateTime(metrics?.summary.last_upload_at ?? null)}</strong>
+            </div>
+          </div>
+
+          <button
+            className="ghost-button compact-button"
+            disabled={isLoading}
+            onClick={() => void loadMetrics()}
+            type="button"
+          >
+            <RefreshCw aria-hidden="true" size={17} strokeWidth={2} />
+            <span>{isLoading ? "Actualizando..." : "Actualizar"}</span>
+          </button>
+        </div>
       </section>
 
       <FormError message={error} />
@@ -169,7 +191,10 @@ export function HomePage() {
             FileText;
 
           return (
-            <article className="report-type-card" key={item.report_type}>
+            <article
+              className={`report-type-card ${getReportTypeClass(item.report_type)}`}
+              key={item.report_type}
+            >
               <div className="report-type-card-heading">
                 <Icon aria-hidden="true" size={22} strokeWidth={2} />
                 <div>
@@ -274,9 +299,18 @@ export function HomePage() {
               </thead>
               <tbody>
                 {metrics.latest_uploads.map((upload) => (
-                  <tr key={upload.id}>
+                  <tr
+                    className={`report-row ${getReportTypeClass(upload.report_type)}`}
+                    key={upload.id}
+                  >
                     <td>
-                      <span className="role-pill">{upload.report_type}</span>
+                      <span
+                        className={`role-pill report-pill ${getReportTypeClass(
+                          upload.report_type
+                        )}`}
+                      >
+                        {upload.report_type}
+                      </span>
                     </td>
                     <td>{upload.file_name}</td>
                     <td>{upload.company_name}</td>

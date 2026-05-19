@@ -576,10 +576,14 @@ const appendSalesDatosLiquidacion = (xml: XmlBuilder, row: CreditReportRow) => {
     return;
   }
 
+  const formaPago = toNumber(row.forma_pago);
+
   xml.open("datos_liquidacion");
   appendTag(xml, "fecha_pago", row.fecha_pago, "date");
   appendTag(xml, "forma_pago", row.forma_pago, "integer");
-  appendTag(xml, "instrumento_monetario", row.instrumento_monetario, "integer");
+  if (formaPago !== 3) {
+    appendTag(xml, "instrumento_monetario", row.instrumento_monetario, "integer");
+  }
   appendTag(xml, "moneda", row.moneda, "integer");
   appendTag(xml, "monto_operacion", row.monto_operacion, "amount");
   xml.close("datos_liquidacion");

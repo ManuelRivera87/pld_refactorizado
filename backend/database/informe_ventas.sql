@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS informe_credito_registros (
+CREATE TABLE IF NOT EXISTS informe_venta_registros (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   report_upload_id UUID REFERENCES report_uploads(id),
   uploaded_by_user_id UUID NOT NULL REFERENCES users(id),
@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS informe_credito_registros (
   uploaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   mes_afectacion INTEGER,
   anio_afectacion INTEGER,
-  tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'MPC',
+  tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'VEH',
   mes_reporte INTEGER,
   clave_sujeto_obligado VARCHAR(50),
   clave_actividad VARCHAR(50),
@@ -81,62 +81,62 @@ CREATE TABLE IF NOT EXISTS informe_credito_registros (
   codigo_postal_agencia VARCHAR(10),
   nombre_sucursal VARCHAR(150),
   tipo_operacion INTEGER,
-  tipo_garantia INTEGER,
-  tipo_inmueble INTEGER,
-  valor_avaluo_catastral NUMERIC(18,2),
-  codigo_postal_ubicacion VARCHAR(10),
-  folio_real VARCHAR(100),
-  descripcion_garantia TEXT,
-  tipo_persona INTEGER,
-  nombre VARCHAR(150),
-  apellido_paterno VARCHAR(100),
-  apellido_materno VARCHAR(100),
-  fecha_nacimiento DATE,
-  rfc_garante VARCHAR(20),
-  curp_garante VARCHAR(20),
-  denominacion_razon_moral_garante VARCHAR(255),
-  fecha_constitucion_moral_garante DATE,
-  rfc_moral_garante VARCHAR(20),
-  denominacion_razon_fide_garante VARCHAR(255),
-  rfc_fide_garante VARCHAR(20),
-  identificador_fideicomiso_fide_garante VARCHAR(100),
+  marca_fabricante VARCHAR(40),
+  modelo VARCHAR(40),
+  anio_vehiculo INTEGER,
+  vin VARCHAR(20),
+  repuve VARCHAR(8),
+  placas VARCHAR(12),
   fecha_pago DATE,
+  forma_pago INTEGER,
   instrumento_monetario INTEGER,
   moneda INTEGER,
   monto_operacion NUMERIC(18,2)
 );
 
-ALTER TABLE informe_credito_registros
-  ADD COLUMN IF NOT EXISTS report_upload_id UUID REFERENCES report_uploads(id);
+ALTER TABLE informe_venta_registros
+  ALTER COLUMN tipo_actividad SET DEFAULT 'VEH';
 
-ALTER TABLE informe_credito_registros
-  ADD COLUMN IF NOT EXISTS mes_afectacion INTEGER;
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS marca_fabricante VARCHAR(40);
 
-ALTER TABLE informe_credito_registros
-  ADD COLUMN IF NOT EXISTS anio_afectacion INTEGER;
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS modelo VARCHAR(40);
 
-ALTER TABLE informe_credito_registros
-  ADD COLUMN IF NOT EXISTS tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'MPC';
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS anio_vehiculo INTEGER;
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_report_upload_id
-  ON informe_credito_registros(report_upload_id);
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS vin VARCHAR(20);
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_uploaded_by_user_id
-  ON informe_credito_registros(uploaded_by_user_id);
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS repuve VARCHAR(8);
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_company_id
-  ON informe_credito_registros(company_id);
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS placas VARCHAR(12);
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_uploaded_at
-  ON informe_credito_registros(uploaded_at);
+ALTER TABLE informe_venta_registros
+  ADD COLUMN IF NOT EXISTS forma_pago INTEGER;
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_mes_reporte
-  ON informe_credito_registros(mes_reporte);
+CREATE INDEX IF NOT EXISTS idx_informe_venta_report_upload_id
+  ON informe_venta_registros(report_upload_id);
 
-CREATE INDEX IF NOT EXISTS idx_informe_credito_periodo_afectacion
-  ON informe_credito_registros(anio_afectacion, mes_afectacion);
+CREATE INDEX IF NOT EXISTS idx_informe_venta_uploaded_by_user_id
+  ON informe_venta_registros(uploaded_by_user_id);
 
-CREATE TABLE IF NOT EXISTS credit_xml_exports (
+CREATE INDEX IF NOT EXISTS idx_informe_venta_company_id
+  ON informe_venta_registros(company_id);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_uploaded_at
+  ON informe_venta_registros(uploaded_at);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_mes_reporte
+  ON informe_venta_registros(mes_reporte);
+
+CREATE INDEX IF NOT EXISTS idx_informe_venta_periodo_afectacion
+  ON informe_venta_registros(anio_afectacion, mes_afectacion);
+
+CREATE TABLE IF NOT EXISTS sales_xml_exports (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   report_upload_id UUID NOT NULL REFERENCES report_uploads(id) ON DELETE CASCADE,
   company_id UUID NOT NULL REFERENCES companies(id),
@@ -145,21 +145,21 @@ CREATE TABLE IF NOT EXISTS credit_xml_exports (
   file_path TEXT NOT NULL,
   mes_afectacion INTEGER NOT NULL,
   anio_afectacion INTEGER NOT NULL,
-  tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'MPC',
+  tipo_actividad VARCHAR(10) NOT NULL DEFAULT 'VEH',
   xls_headers JSONB NOT NULL,
   rows_exported INTEGER NOT NULL DEFAULT 0,
   xml_content TEXT NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_report_upload_id
-  ON credit_xml_exports(report_upload_id);
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_report_upload_id
+  ON sales_xml_exports(report_upload_id);
 
-CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_company_id
-  ON credit_xml_exports(company_id);
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_company_id
+  ON sales_xml_exports(company_id);
 
-CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_generated_by_user_id
-  ON credit_xml_exports(generated_by_user_id);
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_generated_by_user_id
+  ON sales_xml_exports(generated_by_user_id);
 
-CREATE INDEX IF NOT EXISTS idx_credit_xml_exports_created_at
-  ON credit_xml_exports(created_at);
+CREATE INDEX IF NOT EXISTS idx_sales_xml_exports_created_at
+  ON sales_xml_exports(created_at);

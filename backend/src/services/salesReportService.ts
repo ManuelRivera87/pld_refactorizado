@@ -170,6 +170,13 @@ const buildHeaderIndex = (headerRow: unknown[]) => {
   return headerIndex;
 };
 
+const hasMappedSalesValue = (row: unknown[], headerIndex: Map<string, number>) =>
+  salesReportColumns.some((column) => {
+    const index = headerIndex.get(column.header);
+
+    return index !== undefined && !isBlank(row[index]);
+  });
+
 const parseMesAfectacion = (value: string) => {
   const month = Number(value);
 
@@ -210,7 +217,9 @@ export const uploadSalesReport = async ({
   const company = await getCompanyById(companyId);
   const rows = readRows(file.buffer);
   const headerIndex = buildHeaderIndex(rows[0]);
-  const dataRows = rows.slice(1).filter((row) => row.some((value) => !isBlank(value)));
+  const dataRows = rows
+    .slice(1)
+    .filter((row) => hasMappedSalesValue(row, headerIndex));
   const validationErrors = validateSalesReportRows(dataRows, headerIndex);
 
   if (validationErrors.length > 0) {

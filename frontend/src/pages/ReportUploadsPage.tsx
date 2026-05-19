@@ -50,6 +50,9 @@ const formatAffectationPeriod = (
   return `${monthNames[month] ?? month} ${year}`;
 };
 
+const getReportTypeClass = (reportType: string) =>
+  `report-type-${reportType.toLowerCase()}`;
+
 export function ReportUploadsPage() {
   const [uploads, setUploads] = useState<ReportUploadItem[]>([]);
   const [error, setError] = useState("");
@@ -142,9 +145,18 @@ export function ReportUploadsPage() {
             </thead>
             <tbody>
               {uploads.map((upload) => (
-                <tr key={upload.id}>
+                <tr
+                  className={`report-row ${getReportTypeClass(upload.report_type)}`}
+                  key={upload.id}
+                >
                   <td>
-                    <span className="role-pill">{upload.report_type}</span>
+                    <span
+                      className={`role-pill report-pill ${getReportTypeClass(
+                        upload.report_type
+                      )}`}
+                    >
+                      {upload.report_type}
+                    </span>
                   </td>
                   <td>{upload.file_name}</td>
                   <td>{upload.company_name}</td>

@@ -168,8 +168,8 @@ export function MainLayout({ children }: { children: ReactNode }) {
       <section className="content-shell">
         <header className="content-header">
           <div>
-            <p className="eyebrow">PLD Autocom</p>
-            <h1>Panel de control</h1>
+            <p className="eyebrow">Portal PLD Grupo Autocom</p>
+            <h1>Panel corporativo de cumplimiento</h1>
           </div>
           <div className="header-user">
             <span>{session?.user.role}</span>

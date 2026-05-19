@@ -92,6 +92,8 @@ const formatValidationValue = (value: unknown) => {
   return String(value);
 };
 
+const getReportKindClass = (kind: ReportKind) => `report-type-${kind}`;
+
 export function ReportUploadPage({ kind }: ReportUploadPageProps) {
   const [companies, setCompanies] = useState<CompanyItem[]>([]);
   const [companyId, setCompanyId] = useState("");
@@ -253,12 +255,14 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
   };
 
   return (
-    <div className="report-upload-page">
+    <div className={`report-upload-page ${getReportKindClass(kind)}`}>
       <section className="report-hero-panel">
         <p className="eyebrow">Informes</p>
         <h2>{labels.title}</h2>
         <p>{labels.description}</p>
-        <span className="report-kind-badge">{kind}</span>
+        <span className={`report-kind-badge ${getReportKindClass(kind)}`}>
+          {kind}
+        </span>
       </section>
 
       <section className="report-form-panel">

@@ -37,7 +37,9 @@ $env:PGPASSWORD='root'
 $exists = psql -U postgres -h localhost -p 5432 -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='pld'"
 if (-not $exists) { psql -U postgres -h localhost -p 5432 -d postgres -c "CREATE DATABASE pld" }
 psql -U postgres -h localhost -p 5432 -d pld -f database/init.sql
+psql -U postgres -h localhost -p 5432 -d pld -f database/informes_comun.sql
 psql -U postgres -h localhost -p 5432 -d pld -f database/informe_credito.sql
+psql -U postgres -h localhost -p 5432 -d pld -f database/informe_ventas.sql
 ```
 
 ### Ejecucion
@@ -66,6 +68,7 @@ El documento OpenAPI queda disponible en `http://localhost:4000/api-docs.json`.
 - `DELETE /empresas/:id`: elimina una empresa.
 - `GET /informes/cargas`: lista las cargas de informes realizadas.
 - `POST /informes/creditos/cargar`: carga XLS de creditos e inserta en `informe_credito_registros`.
+- `POST /informes/ventas/cargar`: carga XLS de ventas e inserta en `informe_venta_registros`.
 
 ### Scripts
 
