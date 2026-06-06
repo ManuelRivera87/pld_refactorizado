@@ -9,6 +9,7 @@ import {
   getMyUploadDashboardController,
   listReportUploadsController,
   uploadCreditReportController,
+  uploadLeaseReportController,
   uploadSalesReportController
 } from "../controllers/reportController.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
@@ -137,6 +138,44 @@ reportsRouter.post(
   "/ventas/cargar",
   upload.single("file"),
   asyncHandler(uploadSalesReportController)
+);
+
+/**
+ * @openapi
+ * /informes/arrendamientos/cargar:
+ *   post:
+ *     summary: Carga un archivo XLS de informe de arrendamientos
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required: [companyId, mesAfectacion, anioAfectacion, file]
+ *             properties:
+ *               companyId:
+ *                 type: string
+ *                 format: uuid
+ *               mesAfectacion:
+ *                 type: integer
+ *                 example: 4
+ *               anioAfectacion:
+ *                 type: integer
+ *                 example: 2025
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Informe de arrendamientos cargado correctamente.
+ */
+reportsRouter.post(
+  "/arrendamientos/cargar",
+  upload.single("file"),
+  asyncHandler(uploadLeaseReportController)
 );
 
 /**

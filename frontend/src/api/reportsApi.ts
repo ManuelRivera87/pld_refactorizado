@@ -2,7 +2,7 @@ import { http } from "./http";
 
 export type CreditReportUploadSummary = {
   uploadId: string;
-  reportType: "creditos" | "ventas";
+  reportType: "creditos" | "ventas" | "arrendamientos";
   fileName: string;
   companyId: string;
   companyName: string;
@@ -10,7 +10,7 @@ export type CreditReportUploadSummary = {
   uploadedAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC" | "VEH";
+  tipoActividad: "MPC" | "VEH" | "ARI";
   rowsInserted: number;
   fieldsInserted: number;
   insertedFields: Array<{
@@ -30,7 +30,7 @@ export type CreditXmlExportSummary = {
   createdAt: string;
   mesAfectacion: number;
   anioAfectacion: number;
-  tipoActividad: "MPC" | "VEH";
+  tipoActividad: "MPC" | "VEH" | "ARI";
   rowsExported: number;
   xlsHeaders: string[];
 };
@@ -143,6 +143,26 @@ export const uploadSalesReportRequest = async (payload: {
 
   const { data } = await http.post<{ summary: CreditReportUploadSummary }>(
     "/informes/ventas/cargar",
+    formData
+  );
+
+  return data.summary;
+};
+
+export const uploadLeaseReportRequest = async (payload: {
+  companyId: string;
+  mesAfectacion: string;
+  anioAfectacion: string;
+  file: File;
+}) => {
+  const formData = new FormData();
+  formData.append("companyId", payload.companyId);
+  formData.append("mesAfectacion", payload.mesAfectacion);
+  formData.append("anioAfectacion", payload.anioAfectacion);
+  formData.append("file", payload.file);
+
+  const { data } = await http.post<{ summary: CreditReportUploadSummary }>(
+    "/informes/arrendamientos/cargar",
     formData
   );
 

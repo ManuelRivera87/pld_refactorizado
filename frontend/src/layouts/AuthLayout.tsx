@@ -23,7 +23,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
             <div className="auth-hero-metrics">
               <div>
                 <span>Operacion</span>
-                <strong>Ventas y creditos</strong>
+                <strong>Ventas, creditos y arrendamientos</strong>
               </div>
               <div>
                 <span>Revision</span>

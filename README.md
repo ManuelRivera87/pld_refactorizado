@@ -40,6 +40,7 @@ psql -U postgres -h localhost -p 5432 -d pld -f database/init.sql
 psql -U postgres -h localhost -p 5432 -d pld -f database/informes_comun.sql
 psql -U postgres -h localhost -p 5432 -d pld -f database/informe_credito.sql
 psql -U postgres -h localhost -p 5432 -d pld -f database/informe_ventas.sql
+psql -U postgres -h localhost -p 5432 -d pld -f database/informe_arrendamientos.sql
 ```
 
 ### Ejecucion
@@ -69,6 +70,7 @@ El documento OpenAPI queda disponible en `http://localhost:4000/api-docs.json`.
 - `GET /informes/cargas`: lista las cargas de informes realizadas.
 - `POST /informes/creditos/cargar`: carga XLS de creditos e inserta en `informe_credito_registros`.
 - `POST /informes/ventas/cargar`: carga XLS de ventas e inserta en `informe_venta_registros`.
+- `POST /informes/arrendamientos/cargar`: carga XLS de arrendamientos e inserta en `informe_arrendamiento_registros`.
 
 ### Scripts
 

@@ -10,6 +10,7 @@ import { type FormEvent, useEffect, useMemo, useState } from "react";
 import { listCompaniesRequest, type CompanyItem } from "../api/companiesApi";
 import {
   downloadCreditXmlRequest,
+  uploadLeaseReportRequest,
   downloadSalesXmlRequest,
   generateCreditXmlRequest,
   generateSalesXmlRequest,
@@ -119,8 +120,10 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
   const labels = reportLabels[kind];
   const isCreditReport = kind === "creditos";
   const isSalesReport = kind === "ventas";
-  const isUploadEnabledReport = isCreditReport || isSalesReport;
-  const activityType = isSalesReport ? "VEH" : "MPC";
+  const isLeaseReport = kind === "arrendamientos";
+  const isUploadEnabledReport = isCreditReport || isSalesReport || isLeaseReport;
+  const supportsXmlGeneration = isCreditReport || isSalesReport;
+  const activityType = isSalesReport ? "VEH" : isLeaseReport ? "ARI" : "MPC";
   const selectedCompany = useMemo(
     () => companies.find((company) => company.id === companyId),
     [companies, companyId]
@@ -181,6 +184,13 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
             file,
             mesAfectacion
           })
+        : isLeaseReport
+          ? await uploadLeaseReportRequest({
+              anioAfectacion,
+              companyId,
+              file,
+              mesAfectacion
+            })
         : await uploadCreditReportRequest({
             anioAfectacion,
             companyId,
@@ -461,83 +471,95 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
                 </div>
               </details>
 
-              <div className="xml-export-actions">
-                <button
-                  className="ghost-button"
-                  disabled={isGeneratingXml}
-                  onClick={handleGenerateXml}
-                  type="button"
-                >
-                  <FileText aria-hidden="true" size={18} strokeWidth={2} />
-                  <span>{isGeneratingXml ? "Generando XML..." : "Generar XML"}</span>
-                </button>
-                <p>
-                  El XML se genera con el formato SAT de {kind} y queda guardado
-                  en {isSalesReport ? "upload/xmlventa" : "upload/xmlcredito"}.
-                </p>
-              </div>
-
-              <FormError message={xmlError} />
-
-              {xmlSummary ? (
-                <section className="xml-summary">
-                  <div className="section-heading section-heading-row">
-                    <div>
-                      <p className="eyebrow">XML generado</p>
-                      <h2>Archivo listo</h2>
-                    </div>
-                    <span className="counter-badge">{xmlSummary.rowsExported}</span>
-                  </div>
-
-                  <dl className="summary-list">
-                    <div>
-                      <dt>Archivo XML</dt>
-                      <dd>{xmlSummary.fileName}</dd>
-                    </div>
-                    <div>
-                      <dt>Ruta</dt>
-                      <dd>{xmlSummary.filePath}</dd>
-                    </div>
-                    <div>
-                      <dt>Registros XML</dt>
-                      <dd>{xmlSummary.rowsExported}</dd>
-                    </div>
-                    <div>
-                      <dt>Fecha de creacion</dt>
-                      <dd>{new Date(xmlSummary.createdAt).toLocaleString("es-MX")}</dd>
-                    </div>
-                    <div>
-                      <dt>Periodo</dt>
-                      <dd>
-                        {getMonthLabel(xmlSummary.mesAfectacion)} {xmlSummary.anioAfectacion}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>Empresa</dt>
-                      <dd>{xmlSummary.companyName}</dd>
-                    </div>
-                  </dl>
-
-                  <div className="xml-export-actions compact-actions">
+              {supportsXmlGeneration ? (
+                <>
+                  <div className="xml-export-actions">
                     <button
                       className="ghost-button"
-                      disabled={isDownloadingXml}
-                      onClick={handleDownloadXml}
+                      disabled={isGeneratingXml}
+                      onClick={handleGenerateXml}
                       type="button"
                     >
-                      <Download aria-hidden="true" size={18} strokeWidth={2} />
-                      <span>
-                        {isDownloadingXml ? "Preparando descarga..." : "Guardar XML"}
-                      </span>
+                      <FileText aria-hidden="true" size={18} strokeWidth={2} />
+                      <span>{isGeneratingXml ? "Generando XML..." : "Generar XML"}</span>
                     </button>
                     <p>
-                      Usa esta opcion para guardar una copia local desde el navegador.
+                      El XML se genera con el formato SAT de {kind} y queda guardado
+                      en {isSalesReport ? "upload/xmlventa" : "upload/xmlcredito"}.
                     </p>
                   </div>
 
-                  <FormError message={xmlDownloadError} />
-                </section>
-              ) : null}
+                  <FormError message={xmlError} />
+
+                  {xmlSummary ? (
+                    <section className="xml-summary">
+                      <div className="section-heading section-heading-row">
+                        <div>
+                          <p className="eyebrow">XML generado</p>
+                          <h2>Archivo listo</h2>
+                        </div>
+                        <span className="counter-badge">{xmlSummary.rowsExported}</span>
+                      </div>
+
+                      <dl className="summary-list">
+                        <div>
+                          <dt>Archivo XML</dt>
+                          <dd>{xmlSummary.fileName}</dd>
+                        </div>
+                        <div>
+                          <dt>Ruta</dt>
+                          <dd>{xmlSummary.filePath}</dd>
+                        </div>
+                        <div>
+                          <dt>Registros XML</dt>
+                          <dd>{xmlSummary.rowsExported}</dd>
+                        </div>
+                        <div>
+                          <dt>Fecha de creacion</dt>
+                          <dd>{new Date(xmlSummary.createdAt).toLocaleString("es-MX")}</dd>
+                        </div>
+                        <div>
+                          <dt>Periodo</dt>
+                          <dd>
+                            {getMonthLabel(xmlSummary.mesAfectacion)} {xmlSummary.anioAfectacion}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>Empresa</dt>
+                          <dd>{xmlSummary.companyName}</dd>
+                        </div>
+                      </dl>
+
+                      <div className="xml-export-actions compact-actions">
+                        <button
+                          className="ghost-button"
+                          disabled={isDownloadingXml}
+                          onClick={handleDownloadXml}
+                          type="button"
+                        >
+                          <Download aria-hidden="true" size={18} strokeWidth={2} />
+                          <span>
+                            {isDownloadingXml ? "Preparando descarga..." : "Guardar XML"}
+                          </span>
+                        </button>
+                        <p>
+                          Usa esta opcion para guardar una copia local desde el navegador.
+                        </p>
+                      </div>
+
+                      <FormError message={xmlDownloadError} />
+                    </section>
+                  ) : null}
+                </>
+              ) : (
+                <div className="xml-export-actions">
+                  <p>
+                    La carga de arrendamientos ya queda registrada con tipo de actividad
+                    <strong> ARI</strong>. La generacion XML se habilitara cuando
+                    definamos el esquema especifico de este informe.
+                  </p>
+                </div>
+              )}
             </section>
           ) : null}
 

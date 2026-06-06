@@ -7,6 +7,7 @@ import {
   getCreditXmlExportForDownload,
   getSalesXmlExportForDownload
 } from "../services/creditXmlService.js";
+import { uploadLeaseReport } from "../services/leaseReportService.js";
 import { uploadSalesReport } from "../services/salesReportService.js";
 import {
   getReportDashboardMetrics,
@@ -55,6 +56,29 @@ export const uploadSalesReportController = async (
   }
 
   const summary = await uploadSalesReport({
+    anioAfectacion: String(request.body.anioAfectacion ?? ""),
+    companyId: String(request.body.companyId ?? ""),
+    file: request.file,
+    mesAfectacion: String(request.body.mesAfectacion ?? ""),
+    uploadedByUserId: request.user.id
+  });
+
+  response.status(201).json({ summary });
+};
+
+export const uploadLeaseReportController = async (
+  request: UploadRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  if (!request.file) {
+    throw new HttpError(400, "XLS file is required");
+  }
+
+  const summary = await uploadLeaseReport({
     anioAfectacion: String(request.body.anioAfectacion ?? ""),
     companyId: String(request.body.companyId ?? ""),
     file: request.file,
