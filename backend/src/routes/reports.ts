@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { upload } from "../config/upload.js";
 import {
+  downloadLeaseXmlController,
   downloadCreditXmlController,
   downloadSalesXmlController,
   generateCreditXmlController,
+  generateLeaseXmlController,
   generateSalesXmlController,
   getReportDashboardMetricsController,
   getMyUploadDashboardController,
@@ -232,6 +234,32 @@ reportsRouter.post(
 
 /**
  * @openapi
+ * /informes/arrendamientos/{uploadId}/xml:
+ *   post:
+ *     summary: Genera y guarda el XML SAT de una carga de arrendamientos
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: uploadId
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       201:
+ *         description: XML de arrendamientos generado correctamente.
+ *       404:
+ *         description: Carga de arrendamientos no encontrada.
+ */
+reportsRouter.post(
+  "/arrendamientos/:uploadId/xml",
+  asyncHandler(generateLeaseXmlController)
+);
+
+/**
+ * @openapi
  * /informes/creditos/xml/{xmlExportId}/download:
  *   get:
  *     summary: Descarga un XML de creditos generado
@@ -288,4 +316,34 @@ reportsRouter.get(
 reportsRouter.get(
   "/ventas/xml/:xmlExportId/download",
   asyncHandler(downloadSalesXmlController)
+);
+
+/**
+ * @openapi
+ * /informes/arrendamientos/xml/{xmlExportId}/download:
+ *   get:
+ *     summary: Descarga un XML de arrendamientos generado
+ *     tags: [Informes]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: xmlExportId
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *     responses:
+ *       200:
+ *         description: Archivo XML.
+ *         content:
+ *           application/xml:
+ *             schema:
+ *               type: string
+ *       404:
+ *         description: XML de arrendamientos no encontrado.
+ */
+reportsRouter.get(
+  "/arrendamientos/xml/:xmlExportId/download",
+  asyncHandler(downloadLeaseXmlController)
 );

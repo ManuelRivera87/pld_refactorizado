@@ -8,6 +8,10 @@ import {
   getSalesXmlExportForDownload
 } from "../services/creditXmlService.js";
 import { uploadLeaseReport } from "../services/leaseReportService.js";
+import {
+  generateLeaseXml,
+  getLeaseXmlExportForDownload
+} from "../services/leaseXmlService.js";
 import { uploadSalesReport } from "../services/salesReportService.js";
 import {
   getReportDashboardMetrics,
@@ -123,6 +127,23 @@ export const generateSalesXmlController = async (
   response.status(201).json({ summary });
 };
 
+export const generateLeaseXmlController = async (
+  request: AuthenticatedRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const summary = await generateLeaseXml(
+    String(request.params.uploadId ?? ""),
+    request.user.id,
+    request.user.role
+  );
+
+  response.status(201).json({ summary });
+};
+
 export const downloadCreditXmlController = async (
   request: AuthenticatedRequest,
   response: Response
@@ -157,6 +178,31 @@ export const downloadSalesXmlController = async (
   }
 
   const xmlExport = await getSalesXmlExportForDownload(
+    String(request.params.xmlExportId ?? ""),
+    {
+      userId: request.user.id,
+      role: request.user.role
+    }
+  );
+  const safeFileName = xmlExport.fileName.replace(/[\r\n"]/g, "");
+
+  response.setHeader("Content-Type", "application/xml; charset=utf-8");
+  response.setHeader(
+    "Content-Disposition",
+    `attachment; filename="${safeFileName}"`
+  );
+  response.send(xmlExport.xmlContent);
+};
+
+export const downloadLeaseXmlController = async (
+  request: AuthenticatedRequest,
+  response: Response
+) => {
+  if (!request.user) {
+    throw new HttpError(401, "Authenticated user is required");
+  }
+
+  const xmlExport = await getLeaseXmlExportForDownload(
     String(request.params.xmlExportId ?? ""),
     {
       userId: request.user.id,

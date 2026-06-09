@@ -185,6 +185,14 @@ export const generateSalesXmlRequest = async (uploadId: string) => {
   return data.summary;
 };
 
+export const generateLeaseXmlRequest = async (uploadId: string) => {
+  const { data } = await http.post<{ summary: CreditXmlExportSummary }>(
+    `/informes/arrendamientos/${uploadId}/xml`
+  );
+
+  return data.summary;
+};
+
 export const downloadCreditXmlRequest = async (xmlExportId: string) => {
   const response = await http.get<Blob>(
     `/informes/creditos/xml/${xmlExportId}/download`,
@@ -199,6 +207,17 @@ export const downloadCreditXmlRequest = async (xmlExportId: string) => {
 export const downloadSalesXmlRequest = async (xmlExportId: string) => {
   const response = await http.get<Blob>(
     `/informes/ventas/xml/${xmlExportId}/download`,
+    {
+      responseType: "blob"
+    }
+  );
+
+  return response.data;
+};
+
+export const downloadLeaseXmlRequest = async (xmlExportId: string) => {
+  const response = await http.get<Blob>(
+    `/informes/arrendamientos/xml/${xmlExportId}/download`,
     {
       responseType: "blob"
     }

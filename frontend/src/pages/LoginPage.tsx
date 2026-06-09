@@ -55,13 +55,13 @@ export function LoginPage() {
     <AuthLayout>
       <div className="login-copy">
         <BrandLogo />
-        <p className="eyebrow">Portal corporativo PLD</p>
-        <h1>Acceso a cumplimiento Autocom</h1>
+        <p className="eyebrow">Acceso corporativo</p>
+        <h1>Ingreso al portal PLD</h1>
         <p>
-          Ingresa con tu cuenta corporativa para operar cargas, validaciones y
-          generacion de XML.
+          Ingresa con tu cuenta autorizada para consultar, cargar y dar seguimiento
+          a la operacion regulatoria.
         </p>
-        <small className="login-note">Acceso exclusivo para usuarios @autocom.mx</small>
+        <small className="login-note">Acceso exclusivo para cuentas corporativas autorizadas.</small>
       </div>
 
       <form className="login-form" onSubmit={handleSubmit}>
@@ -74,7 +74,7 @@ export function LoginPage() {
               inputMode="email"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="manuel.avila@autocom.mx"
+              placeholder="correo.corporativo"
               required
               type="email"
               value={email}

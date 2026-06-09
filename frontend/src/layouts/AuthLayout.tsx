@@ -3,42 +3,42 @@ import type { ReactNode } from "react";
 export function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <main className="auth-layout">
-      <section className="auth-hero" aria-label="Portal corporativo PLD Grupo Autocom">
+      <section className="auth-hero" aria-label="Portal corporativo PLD">
         <div className="auth-hero-grid">
           <div className="auth-hero-content">
-            <span>Grupo Autocom</span>
-            <strong>Portal de prevencion de lavado de dinero</strong>
+            <span>Portal interno de cumplimiento</span>
+            <strong>Prevencion de lavado de dinero</strong>
             <p>
-              Plataforma corporativa para la gestion de informes, validaciones y
-              generacion XML de actividades vulnerables.
+              Plataforma institucional para la gestion de informes, validaciones y
+              trazabilidad operativa de actividades vulnerables.
             </p>
           </div>
 
           <div className="auth-hero-visual">
             <div className="auth-hero-band">
-              <small>PLD Autocom</small>
-              <strong>Control, trazabilidad y cumplimiento</strong>
+              <small>Operacion regulatoria</small>
+              <strong>Control documental, seguimiento y salida estructurada</strong>
             </div>
 
             <div className="auth-hero-metrics">
               <div>
-                <span>Operacion</span>
+                <span>Esquemas</span>
                 <strong>Ventas, creditos y arrendamientos</strong>
               </div>
               <div>
                 <span>Revision</span>
-                <strong>Validacion por carga</strong>
+                <strong>Validacion por archivo y por campo</strong>
               </div>
               <div>
-                <span>Salida</span>
-                <strong>XML con estructura SAT</strong>
+                <span>Trazabilidad</span>
+                <strong>Registro de cargas, usuarios y periodos de afectacion</strong>
               </div>
             </div>
 
             <div className="auth-hero-ribbon">
               <span>Uso interno</span>
-              <span>Grupo Autocom</span>
-              <span>Cumplimiento PLD</span>
+              <span>Acceso controlado</span>
+              <span>Normativa SAT</span>
             </div>
           </div>
         </div>

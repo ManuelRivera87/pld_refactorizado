@@ -10,9 +10,11 @@ import { type FormEvent, useEffect, useMemo, useState } from "react";
 import { listCompaniesRequest, type CompanyItem } from "../api/companiesApi";
 import {
   downloadCreditXmlRequest,
+  downloadLeaseXmlRequest,
   uploadLeaseReportRequest,
   downloadSalesXmlRequest,
   generateCreditXmlRequest,
+  generateLeaseXmlRequest,
   generateSalesXmlRequest,
   uploadCreditReportRequest,
   uploadSalesReportRequest,
@@ -122,7 +124,7 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
   const isSalesReport = kind === "ventas";
   const isLeaseReport = kind === "arrendamientos";
   const isUploadEnabledReport = isCreditReport || isSalesReport || isLeaseReport;
-  const supportsXmlGeneration = isCreditReport || isSalesReport;
+  const supportsXmlGeneration = isCreditReport || isSalesReport || isLeaseReport;
   const activityType = isSalesReport ? "VEH" : isLeaseReport ? "ARI" : "MPC";
   const selectedCompany = useMemo(
     () => companies.find((company) => company.id === companyId),
@@ -223,6 +225,8 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     try {
       const summary = isSalesReport
         ? await generateSalesXmlRequest(uploadSummary.uploadId)
+        : isLeaseReport
+          ? await generateLeaseXmlRequest(uploadSummary.uploadId)
         : await generateCreditXmlRequest(uploadSummary.uploadId);
       setXmlSummary(summary);
     } catch (nextError) {
@@ -243,6 +247,8 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     try {
       const blob = isSalesReport
         ? await downloadSalesXmlRequest(xmlSummary.id)
+        : isLeaseReport
+          ? await downloadLeaseXmlRequest(xmlSummary.id)
         : await downloadCreditXmlRequest(xmlSummary.id);
       downloadBlob(blob, xmlSummary.fileName);
     } catch (nextError) {
@@ -485,7 +491,11 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
                     </button>
                     <p>
                       El XML se genera con el formato SAT de {kind} y queda guardado
-                      en {isSalesReport ? "upload/xmlventa" : "upload/xmlcredito"}.
+                      en {isSalesReport
+                        ? "upload/xmlventa"
+                        : isLeaseReport
+                          ? "upload/xmlarrendamiento"
+                          : "upload/xmlcredito"}.
                     </p>
                   </div>
 
@@ -551,15 +561,7 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
                     </section>
                   ) : null}
                 </>
-              ) : (
-                <div className="xml-export-actions">
-                  <p>
-                    La carga de arrendamientos ya queda registrada con tipo de actividad
-                    <strong> ARI</strong>. La generacion XML se habilitara cuando
-                    definamos el esquema especifico de este informe.
-                  </p>
-                </div>
-              )}
+              ) : null}
             </section>
           ) : null}
 

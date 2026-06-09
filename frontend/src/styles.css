@@ -66,8 +66,9 @@ button {
 .auth-layout {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(320px, 0.92fr) minmax(360px, 520px);
-  background: var(--surface);
+  grid-template-columns: minmax(320px, 1.08fr) minmax(380px, 500px);
+  background:
+    linear-gradient(90deg, #0b0d11 0%, #0b0d11 58%, #f5f7fa 58%, #f5f7fa 100%);
 }
 
 .auth-hero {
@@ -75,12 +76,12 @@ button {
   display: grid;
   align-items: center;
   min-height: 100vh;
-  padding: 48px;
+  padding: 56px 64px;
   overflow: hidden;
   color: #ffffff;
   background:
-    linear-gradient(125deg, rgba(227, 6, 19, 0.18) 0%, rgba(227, 6, 19, 0) 42%),
-    linear-gradient(180deg, #050505 0%, #11141a 100%);
+    linear-gradient(135deg, rgba(227, 6, 19, 0.14) 0%, rgba(227, 6, 19, 0) 38%),
+    linear-gradient(180deg, #080a0d 0%, #12161d 100%);
 }
 
 .auth-hero::before {
@@ -88,31 +89,30 @@ button {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(227, 6, 19, 0.22), rgba(227, 6, 19, 0) 30%),
+    linear-gradient(90deg, rgba(227, 6, 19, 0.2), rgba(227, 6, 19, 0) 22%),
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.03) 0,
-      rgba(255, 255, 255, 0.03) 1px,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 1px,
       transparent 1px,
-      transparent 96px
+      transparent 104px
     ),
     repeating-linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.035) 0,
-      rgba(255, 255, 255, 0.035) 1px,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 1px,
       transparent 1px,
-      transparent 88px
+      transparent 92px
     );
 }
 
 .auth-hero::after {
   content: "";
   position: absolute;
-  inset: auto -90px -90px auto;
-  width: 300px;
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transform: rotate(45deg);
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: var(--autocom-red);
 }
 
 .auth-hero-grid {
@@ -120,67 +120,67 @@ button {
   z-index: 1;
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 36px;
   align-items: end;
 }
 
 .auth-hero-content {
   display: grid;
-  gap: 16px;
-  max-width: 580px;
+  gap: 18px;
+  max-width: 560px;
 }
 
 .auth-hero-content span {
   width: max-content;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 4px solid var(--autocom-red);
   padding: 10px 14px 10px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .auth-hero-content strong {
-  max-width: 12ch;
-  font-size: clamp(2.3rem, 5vw, 4.4rem);
-  line-height: 0.98;
+  max-width: 11ch;
+  font-size: clamp(2.45rem, 5vw, 4.6rem);
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
 .auth-hero-content p {
-  max-width: 52ch;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1.02rem;
+  max-width: 50ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
 }
 
 .auth-hero-visual {
   display: grid;
-  gap: 18px;
+  gap: 14px;
   align-content: end;
 }
 
 .auth-hero-band,
 .auth-hero-metrics > div,
 .auth-hero-ribbon {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
 }
 
 .auth-hero-band {
   display: grid;
   gap: 10px;
   border-left: 4px solid var(--autocom-red);
-  padding: 18px;
+  padding: 18px 18px 20px;
 }
 
 .auth-hero-band small,
 .auth-hero-metrics span,
 .auth-hero-ribbon span {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -189,24 +189,24 @@ button {
 
 .auth-hero-band strong {
   color: #ffffff;
-  font-size: 1.25rem;
-  line-height: 1.15;
+  font-size: 1.2rem;
+  line-height: 1.2;
 }
 
 .auth-hero-metrics {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .auth-hero-metrics > div {
   display: grid;
   gap: 8px;
-  padding: 16px 18px;
+  padding: 15px 18px;
 }
 
 .auth-hero-metrics strong {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.2;
 }
 
@@ -218,10 +218,13 @@ button {
 }
 
 .auth-panel {
-  align-self: center;
-  width: min(100%, 440px);
+  align-self: stretch;
+  width: min(100%, 500px);
   margin: 0 auto;
-  padding: 40px;
+  padding: 56px 42px;
+  display: grid;
+  align-content: center;
+  background: #f5f7fa;
 }
 
 .eyebrow {
@@ -259,30 +262,32 @@ p {
 
 .login-copy {
   display: grid;
-  gap: 14px;
-  margin-bottom: 32px;
+  gap: 16px;
+  margin-bottom: 34px;
 }
 
 .login-copy .brand-logo {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .login-note {
   color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 760;
 }
 
 .login-form {
   display: grid;
   gap: 18px;
+  border-top: 1px solid #d7dde5;
+  padding-top: 26px;
 }
 
 .login-form label {
   display: grid;
   gap: 8px;
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -293,11 +298,11 @@ p {
   grid-template-columns: 22px 1fr;
   align-items: center;
   gap: 10px;
-  border: 1px solid #cfd6df;
+  border: 1px solid #c9d1db;
   border-radius: 4px;
   padding: 0 14px;
   color: #7b8490;
-  background: var(--field);
+  background: #ffffff;
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease,
@@ -307,7 +312,7 @@ p {
 .input-shell:focus-within {
   border-color: var(--autocom-red);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.14);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.12);
 }
 
 .input-shell input {
@@ -432,6 +437,31 @@ p {
   gap: 8px;
 }
 
+.sidebar-group-toggle {
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+  padding: 0;
+  color: #ffffff;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.sidebar-group-toggle:hover,
+.sidebar-group-active .sidebar-group-toggle {
+  border-left-color: var(--autocom-red);
+  background: #151515;
+}
+
 .sidebar-group-label {
   min-height: 42px;
   display: grid;
@@ -447,11 +477,15 @@ p {
 }
 
 .sidebar-subnav {
-  display: grid;
+  display: none;
   gap: 6px;
   border-left: 1px solid #303030;
   margin-left: 22px;
   padding-left: 10px;
+}
+
+.sidebar-subnav-open {
+  display: grid;
 }
 
 .sidebar-sublink {
@@ -1102,6 +1136,141 @@ p {
   width: 100%;
 }
 
+.uploads-filters-panel {
+  display: grid;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 24px;
+  padding: 22px;
+  background: #fbfcfe;
+}
+
+.uploads-filters-header {
+  margin-bottom: 0;
+}
+
+.filters-heading-line {
+  display: inline-grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters-heading-line svg {
+  color: var(--autocom-red);
+}
+
+.uploads-filters-body {
+  display: none;
+}
+
+.uploads-filters-body-open {
+  display: grid;
+  gap: 18px;
+}
+
+.uploads-filters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.uploads-filters-grid label {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.uploads-filters-grid select,
+.filter-search-input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid #cfd6df;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.uploads-filters-grid select {
+  padding: 0 12px;
+  color: var(--ink);
+  outline: none;
+}
+
+.uploads-filters-grid select:focus,
+.filter-search-input:focus-within {
+  border-color: var(--autocom-red);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.14);
+}
+
+.filter-search-field {
+  grid-column: span 2;
+}
+
+.filter-search-input {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  color: #7b8490;
+}
+
+.filter-search-input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  outline: none;
+}
+
+.filter-search-input input::placeholder {
+  color: #9aa3ad;
+}
+
+.uploads-filters-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.uploads-filter-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.uploads-filter-stats div {
+  min-width: 140px;
+  display: grid;
+  gap: 6px;
+  border: 1px solid #e6ebf1;
+  border-radius: 6px;
+  padding: 12px 14px;
+  background: #ffffff;
+}
+
+.uploads-filter-stats span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.uploads-filter-stats strong {
+  color: var(--black);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .section-heading {
   display: grid;
   gap: 10px;
@@ -1603,7 +1772,8 @@ p {
   }
 
   .auth-hero {
-    min-height: 280px;
+    min-height: 320px;
+    padding: 40px 24px;
   }
 
   .auth-hero-grid,
@@ -1616,7 +1786,7 @@ p {
   }
 
   .auth-panel {
-    padding: 32px 24px;
+    padding: 36px 24px;
   }
 
   .sidebar {
@@ -1628,6 +1798,10 @@ p {
 
   .sidebar-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar-group {
+    grid-column: 1 / -1;
   }
 
   .content-header,
@@ -1665,6 +1839,19 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .uploads-filters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-search-field {
+    grid-column: 1 / -1;
+  }
+
+  .uploads-filter-stats {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .profile-hero-panel,
   .profile-dashboard-grid {
     grid-template-columns: 1fr;
@@ -1682,6 +1869,7 @@ p {
 
   .auth-panel {
     width: 100%;
+    min-height: 100vh;
   }
 
   .sidebar-nav {
@@ -1712,6 +1900,11 @@ p {
   .home-metric-grid,
   .report-type-grid,
   .activity-row {
+    grid-template-columns: 1fr;
+  }
+
+  .uploads-filters-grid,
+  .uploads-filter-stats {
     grid-template-columns: 1fr;
   }
 

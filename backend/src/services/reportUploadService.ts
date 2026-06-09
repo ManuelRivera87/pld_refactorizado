@@ -49,6 +49,10 @@ const reportUploadListJoins = `
     SELECT id, file_name, file_path, created_at, rows_exported
     FROM sales_xml_exports
     WHERE report_upload_id = ru.id
+    UNION ALL
+    SELECT id, file_name, file_path, created_at, rows_exported
+    FROM arrend_xml_exports
+    WHERE report_upload_id = ru.id
     ORDER BY created_at DESC
     LIMIT 1
   ) xml ON true
@@ -89,6 +93,8 @@ export const getReportDashboardMetrics =
               SELECT report_upload_id FROM credit_xml_exports
               UNION ALL
               SELECT report_upload_id FROM sales_xml_exports
+              UNION ALL
+              SELECT report_upload_id FROM arrend_xml_exports
             ) xml_exports
             INNER JOIN report_uploads ru_xml ON ru_xml.id = xml_exports.report_upload_id
             WHERE ($1::boolean OR ru_xml.uploaded_by_user_id = $2)
@@ -115,6 +121,8 @@ export const getReportDashboardMetrics =
               SELECT report_upload_id FROM credit_xml_exports
               UNION ALL
               SELECT report_upload_id FROM sales_xml_exports
+              UNION ALL
+              SELECT report_upload_id FROM arrend_xml_exports
             ) xml_exports
             INNER JOIN report_uploads ru_xml ON ru_xml.id = xml_exports.report_upload_id
             WHERE ru_xml.report_type = rt.report_type
