@@ -1540,6 +1540,155 @@ p {
   gap: 18px;
 }
 
+.requirements-panel {
+  display: grid;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--autocom-red);
+  border-radius: 6px;
+  margin-bottom: 24px;
+  padding: 22px;
+  background: #fbfcfe;
+}
+
+.requirements-panel.report-type-ventas {
+  border-left-color: var(--report-sales);
+  background: linear-gradient(180deg, #ffffff 0%, var(--report-sales-soft) 180%);
+}
+
+.requirements-panel.report-type-creditos {
+  border-left-color: var(--report-credit);
+  background: linear-gradient(180deg, #ffffff 0%, var(--report-credit-soft) 180%);
+}
+
+.requirements-header {
+  margin-bottom: 0;
+}
+
+.requirements-header h2 {
+  font-size: 1.45rem;
+}
+
+.requirements-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.requirements-meta > div {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  align-items: start;
+  border: 1px solid #e6ebf1;
+  border-radius: 6px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.requirements-meta svg {
+  color: var(--autocom-red);
+}
+
+.requirements-panel.report-type-ventas .requirements-meta svg {
+  color: var(--report-sales);
+}
+
+.requirements-panel.report-type-creditos .requirements-meta svg {
+  color: var(--report-credit);
+}
+
+.requirements-meta > div > div {
+  display: grid;
+  gap: 6px;
+}
+
+.requirements-meta span,
+.requirements-block > span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.requirements-meta strong {
+  color: var(--black);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.requirements-body {
+  display: none;
+}
+
+.requirements-body-open {
+  display: grid;
+  gap: 18px;
+}
+
+.requirements-form-tags,
+.requirements-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.requirements-form-tags span,
+.requirements-tags small {
+  min-height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #d9e0e8;
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: var(--ink);
+  background: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.requirements-card {
+  display: grid;
+  gap: 16px;
+  border: 1px solid #e2e8ef;
+  border-radius: 6px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.requirements-card h3 {
+  margin: 0;
+  color: var(--black);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.requirements-block {
+  display: grid;
+  gap: 10px;
+}
+
+.requirements-rules {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink);
+}
+
+.requirements-rules li {
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .report-upload-form label {
   display: grid;
   gap: 8px;
@@ -1832,6 +1981,11 @@ p {
   }
 
   .report-upload-page {
+    grid-template-columns: 1fr;
+  }
+
+  .requirements-meta,
+  .requirements-grid {
     grid-template-columns: 1fr;
   }
 

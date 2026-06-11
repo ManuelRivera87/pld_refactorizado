@@ -23,6 +23,7 @@ import {
   type CreditReportValidationError
 } from "../api/reportsApi";
 import { FormError } from "../components/FormError";
+import { ReportRequirementsPanel } from "../components/ReportRequirementsPanel";
 import { downloadBlob } from "../utils/downloadFile";
 
 type ReportKind = "ventas" | "creditos" | "arrendamientos";
@@ -282,6 +283,8 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
       </section>
 
       <section className="report-form-panel">
+        <ReportRequirementsPanel kind={kind} />
+
         <form className="report-upload-form" onSubmit={handleSubmit}>
           <label>
             <span>Empresa</span>
