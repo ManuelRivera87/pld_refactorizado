@@ -9,8 +9,13 @@ import { useState } from "react";
 
 type ReportKind = "ventas" | "creditos" | "arrendamientos";
 
+type RequirementField = {
+  name: string;
+  note?: string;
+};
+
 type RequirementGroup = {
-  fields: string[];
+  fields: RequirementField[];
   title: string;
   validations: string[];
 };
@@ -19,27 +24,38 @@ type RequirementConfig = {
   expectedHeadersCount: number;
   formFields: string[];
   groups: RequirementGroup[];
+  processingNotes: string[];
   title: string;
 };
+
+const field = (name: string, note?: string): RequirementField => ({
+  name,
+  note
+});
 
 const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
   creditos: {
     expectedHeadersCount: 97,
     formFields: ["Empresa", "Mes afectacion", "Anio afectacion", "Tipo de actividad fijo MPC"],
+    processingNotes: [
+      "NombreSucursal se recibe y valida en la carga, pero se omite al generar el XML de creditos para conservar compatibilidad con el esquema legado.",
+      "monto_operacion se exporta redondeado a entero con dos decimales, por ejemplo 123456.00.",
+      "El XML de creditos se genera y descarga con encoding windows-1252."
+    ],
     title: "Campos esperados para creditos",
     groups: [
       {
         title: "Encabezado del aviso",
         fields: [
-          "MesReporte",
-          "ClaveSujetoObligado",
-          "ClaveActividad",
-          "ReferenciaAviso",
-          "FolioModificatorio",
-          "DescripcionMod",
-          "Prioridad",
-          "TipoAlerta",
-          "DescripcionAlerta"
+          field("MesReporte", "6 caracteres, formato AAAAMM"),
+          field("ClaveSujetoObligado", "RFC de 12 a 13 caracteres"),
+          field("ClaveActividad", "3 caracteres, valor fijo MPC"),
+          field("ReferenciaAviso", "1 a 14 caracteres"),
+          field("FolioModificatorio", "6 a 14 caracteres, formato AAAA-folio"),
+          field("DescripcionMod", "1 a 3000 caracteres"),
+          field("Prioridad", "1 digito, valores 1 o 2"),
+          field("TipoAlerta", "3 a 4 digitos"),
+          field("DescripcionAlerta", "1 a 3000 caracteres")
         ],
         validations: [
           "MesReporte debe venir en formato AAAAMM.",
@@ -50,14 +66,14 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Persona objeto y domicilio",
         fields: [
-          "TipoPersonaObjetoAviso",
-          "RFCObjetoAviso",
-          "CURPObjetoAviso",
-          "PaisNacionalidadObjetoAviso",
-          "TipoDomicilioAviso",
-          "ColoniaAvisoNacional",
-          "PaisAvisoExtranjero",
-          "NumeroTelefonoAviso"
+          field("TipoPersonaObjetoAviso", "1 digito, valores 1 a 3"),
+          field("RFCObjetoAviso", "RFC de 12 a 13 caracteres"),
+          field("CURPObjetoAviso", "18 caracteres"),
+          field("PaisNacionalidadObjetoAviso", "2 letras"),
+          field("TipoDomicilioAviso", "1 digito, valores 1 o 2"),
+          field("ColoniaAvisoNacional", "1 a 50 caracteres"),
+          field("PaisAvisoExtranjero", "2 letras"),
+          field("NumeroTelefonoAviso", "10 a 12 digitos")
         ],
         validations: [
           "Para persona fisica se exige RFC o CURP.",
@@ -68,12 +84,12 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Beneficiario",
         fields: [
-          "TipoPersonaBeneficiario",
-          "NombreBeneficiario",
-          "RFCBeneficiario",
-          "CURPBeneficiario",
-          "DenominacionRazonMoralBeneficiario",
-          "RFCFideicomisoBeneficiario"
+          field("TipoPersonaBeneficiario", "1 digito, valores 1 a 3"),
+          field("NombreBeneficiario", "1 a 200 caracteres"),
+          field("RFCBeneficiario", "RFC de 12 a 13 caracteres"),
+          field("CURPBeneficiario", "18 caracteres"),
+          field("DenominacionRazonMoralBeneficiario", "1 a 254 caracteres"),
+          field("RFCFideicomisoBeneficiario", "RFC de 12 caracteres")
         ],
         validations: [
           "Si se informa beneficiario, los campos del bloque elegido deben completarse.",
@@ -84,16 +100,16 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Operacion, garantia y garante",
         fields: [
-          "Fecha",
-          "CodigoPostalAgencia",
-          "NombreSucursal",
-          "TipoOperacion",
-          "tipo_garantia",
-          "tipo_inmueble",
-          "valor_avaluo_catastral",
-          "folio_real",
-          "tipo_persona",
-          "rfcgarante"
+          field("Fecha", "8 caracteres, formato AAAAMMDD"),
+          field("CodigoPostalAgencia", "5 digitos"),
+          field("NombreSucursal", "1 a 254 caracteres"),
+          field("TipoOperacion", "3 a 4 digitos"),
+          field("tipo_garantia", "1 a 2 digitos"),
+          field("tipo_inmueble", "1 a 3 digitos"),
+          field("valor_avaluo_catastral", "monto con 2 decimales"),
+          field("folio_real", "1 a 20 caracteres"),
+          field("tipo_persona", "1 digito, valores 1 a 3"),
+          field("rfcgarante", "RFC de 12 a 13 caracteres")
         ],
         validations: [
           "Fecha debe venir en AAAAMMDD.",
@@ -103,7 +119,12 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       },
       {
         title: "Liquidacion",
-        fields: ["fecha_pago", "instrumento_monetario", "moneda", "monto_operacion"],
+        fields: [
+          field("fecha_pago", "8 caracteres, formato AAAAMMDD"),
+          field("instrumento_monetario", "1 a 2 digitos"),
+          field("moneda", "1 a 3 digitos"),
+          field("monto_operacion", "monto con 2 decimales")
+        ],
         validations: [
           "fecha_pago debe venir en AAAAMMDD.",
           "instrumento_monetario y moneda se validan como catalogos numericos operativos.",
@@ -115,20 +136,27 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
   ventas: {
     expectedHeadersCount: 85,
     formFields: ["Empresa", "Mes afectacion", "Anio afectacion", "Tipo de actividad fijo VEH"],
+    processingNotes: [
+      "El XML de ventas conserva la estructura VEH alineada al legado operativo actual.",
+      "nivel_blindaje se genera con valor fijo 9 para conservar compatibilidad con el XML legado de ventas.",
+      "Repuve y Placas se reciben y validan en la carga, pero no se estan exportando dentro del XML legado alineado.",
+      "monto_operacion se exporta con dos decimales respetando el valor cargado.",
+      "El XML de ventas se genera y descarga con encoding windows-1252."
+    ],
     title: "Campos esperados para ventas",
     groups: [
       {
         title: "Encabezado del aviso",
         fields: [
-          "MesReporte",
-          "ClaveSujetoObligado",
-          "ClaveActividad",
-          "ReferenciaAviso",
-          "FolioModificatorio",
-          "DescripcionMod",
-          "Prioridad",
-          "TipoAlerta",
-          "DescripcionAlerta"
+          field("MesReporte", "6 caracteres, formato AAAAMM"),
+          field("ClaveSujetoObligado", "RFC de 12 a 13 caracteres"),
+          field("ClaveActividad", "3 caracteres, valor fijo VEH"),
+          field("ReferenciaAviso", "1 a 14 caracteres"),
+          field("FolioModificatorio", "6 a 14 caracteres, formato AAAA-folio"),
+          field("DescripcionMod", "1 a 3000 caracteres"),
+          field("Prioridad", "1 digito, valores 1 o 2"),
+          field("TipoAlerta", "3 a 4 digitos"),
+          field("DescripcionAlerta", "1 a 3000 caracteres")
         ],
         validations: [
           "ClaveActividad debe ser VEH.",
@@ -139,14 +167,14 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Persona objeto, domicilio y beneficiario",
         fields: [
-          "TipoPersonaObjetoAviso",
-          "RFCObjetoAviso",
-          "CURPObjetoAviso",
-          "TipoDomicilioAviso",
-          "CorreoElectronicoAviso",
-          "TipoPersonaBeneficiario",
-          "RFCBeneficiario",
-          "CURPBeneficiario"
+          field("TipoPersonaObjetoAviso", "1 digito, valores 1 a 3"),
+          field("RFCObjetoAviso", "RFC de 12 a 13 caracteres"),
+          field("CURPObjetoAviso", "18 caracteres"),
+          field("TipoDomicilioAviso", "1 digito, valores 1 o 2"),
+          field("CorreoElectronicoAviso", "5 a 60 caracteres"),
+          field("TipoPersonaBeneficiario", "1 digito, valores 1 a 3"),
+          field("RFCBeneficiario", "RFC de 12 a 13 caracteres"),
+          field("CURPBeneficiario", "18 caracteres")
         ],
         validations: [
           "Para persona fisica se exige RFC o CURP.",
@@ -157,13 +185,13 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Datos del vehiculo",
         fields: [
-          "TipoOperacion",
-          "MarcaFabricante",
-          "Modelo",
-          "AnioModelo",
-          "VIN",
-          "Repuve",
-          "Placas"
+          field("TipoOperacion", "3 a 4 digitos"),
+          field("MarcaFabricante", "1 a 40 caracteres"),
+          field("Modelo", "1 a 40 caracteres"),
+          field("AÑo", "4 digitos"),
+          field("VIN", "17 caracteres"),
+          field("Repuve", "8 caracteres"),
+          field("Placas", "1 a 12 caracteres")
         ],
         validations: [
           "VIN debe respetar longitud vehicular esperada.",
@@ -174,11 +202,11 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Liquidacion",
         fields: [
-          "FechaPago",
-          "FormaPago",
-          "InstrumentoMonetario",
-          "Moneda",
-          "MontoOperacion"
+          field("FechaPago", "8 caracteres, formato AAAAMMDD"),
+          field("FormaPago", "1 digito"),
+          field("InstrumentoMonetario", "1 a 2 digitos"),
+          field("Moneda", "1 a 3 digitos"),
+          field("MontoOperacion", "monto con 2 decimales")
         ],
         validations: [
           "FormaPago es obligatoria.",
@@ -192,20 +220,25 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
   arrendamientos: {
     expectedHeadersCount: 88,
     formFields: ["Empresa", "Mes afectacion", "Anio afectacion", "Tipo de actividad fijo ARI"],
+    processingNotes: [
+      "El XML de arrendamientos conserva la estructura ARI del flujo operativo actual.",
+      "monto_operacion se exporta con dos decimales respetando el valor cargado.",
+      "Las caracteristicas del inmueble y la liquidacion viajan solo en el esquema de arrendamientos."
+    ],
     title: "Campos esperados para arrendamientos",
     groups: [
       {
         title: "Encabezado del aviso",
         fields: [
-          "MesReporte",
-          "ClaveSujetoObligado",
-          "ClaveActividad",
-          "ReferenciaAviso",
-          "FolioModificatorio",
-          "DescripcionMod",
-          "Prioridad",
-          "TipoAlerta",
-          "DescripcionAlerta"
+          field("MesReporte", "6 caracteres, formato AAAAMM"),
+          field("ClaveSujetoObligado", "RFC de 12 a 13 caracteres"),
+          field("ClaveActividad", "3 caracteres, valor fijo ARI"),
+          field("ReferenciaAviso", "1 a 14 caracteres"),
+          field("FolioModificatorio", "6 a 14 caracteres, formato AAAA-folio"),
+          field("DescripcionMod", "1 a 3000 caracteres"),
+          field("Prioridad", "1 digito, valores 1 o 2"),
+          field("TipoAlerta", "3 a 4 digitos"),
+          field("DescripcionAlerta", "1 a 3000 caracteres")
         ],
         validations: [
           "ClaveActividad debe ser ARI.",
@@ -216,14 +249,14 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Persona objeto, domicilio y beneficiario",
         fields: [
-          "TipoPersonaObjetoAviso",
-          "RFCObjetoAviso",
-          "CURPObjetoAviso",
-          "TipoDomicilioAviso",
-          "CorreoElectronicoAviso",
-          "TipoPersonaBeneficiario",
-          "RFCBeneficiario",
-          "CURPBeneficiario"
+          field("TipoPersonaObjetoAviso", "1 digito, valores 1 a 3"),
+          field("RFCObjetoAviso", "RFC de 12 a 13 caracteres"),
+          field("CURPObjetoAviso", "18 caracteres"),
+          field("TipoDomicilioAviso", "1 digito, valores 1 o 2"),
+          field("CorreoElectronicoAviso", "5 a 60 caracteres"),
+          field("TipoPersonaBeneficiario", "1 digito, valores 1 a 3"),
+          field("RFCBeneficiario", "RFC de 12 a 13 caracteres"),
+          field("CURPBeneficiario", "18 caracteres")
         ],
         validations: [
           "Los bloques de persona fisica, moral y fideicomiso no pueden mezclarse.",
@@ -234,16 +267,16 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Operacion y caracteristicas del inmueble",
         fields: [
-          "fecha_operacion",
-          "tipo_operacion",
-          "fecha_inicio",
-          "fecha_termino",
-          "tipo_inmueble",
-          "valor_avaluo_catastral",
-          "colonia_inmueble",
-          "calle_inmueble",
-          "codigo_postal_imueble",
-          "folio_real"
+          field("fecha_operacion", "8 caracteres, formato AAAAMMDD"),
+          field("tipo_operacion", "3 a 4 digitos"),
+          field("fecha_inicio", "8 caracteres, formato AAAAMMDD"),
+          field("fecha_termino", "8 caracteres, formato AAAAMMDD"),
+          field("tipo_inmueble", "1 a 3 digitos"),
+          field("valor_avaluo_catastral", "monto con 2 decimales"),
+          field("colonia_inmueble", "1 a 50 caracteres"),
+          field("calle_inmueble", "1 a 100 caracteres"),
+          field("codigo_postal_inmueble", "5 digitos"),
+          field("folio_real", "1 a 200 caracteres")
         ],
         validations: [
           "fecha_operacion, fecha_inicio y fecha_termino deben venir en AAAAMMDD.",
@@ -254,11 +287,11 @@ const requirementConfigByKind: Record<ReportKind, RequirementConfig> = {
       {
         title: "Liquidacion",
         fields: [
-          "fecha_pago",
-          "formaPago",
-          "instrumento_monetario",
-          "moneda",
-          "monto_operacion"
+          field("fecha_pago", "8 caracteres, formato AAAAMMDD"),
+          field("forma_pago", "1 a 3 digitos"),
+          field("instrumento_monetario", "1 a 2 digitos"),
+          field("moneda", "1 a 3 digitos"),
+          field("monto_operacion", "monto con 2 decimales")
         ],
         validations: [
           "FormaPago es obligatoria.",
@@ -282,8 +315,9 @@ export function ReportRequirementsPanel({ kind }: { kind: ReportKind }) {
           <p className="eyebrow">Referencia de carga</p>
           <h2>{config.title}</h2>
           <p>
-            Este resumen muestra la estructura esperada del archivo y las reglas
-            principales que hoy valida el sistema antes de insertar la informacion.
+            Esta referencia corresponde solo al informe actual y muestra la
+            estructura esperada del archivo junto con las reglas principales de
+            validacion y procesamiento.
           </p>
         </div>
         <button
@@ -336,6 +370,15 @@ export function ReportRequirementsPanel({ kind }: { kind: ReportKind }) {
           ))}
         </div>
 
+        <article className="requirements-processing-card">
+          <h3>Procesamiento del XML</h3>
+          <ul className="requirements-rules">
+            {config.processingNotes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        </article>
+
         <div className="requirements-grid">
           {config.groups.map((group) => (
             <article className="requirements-card" key={group.title}>
@@ -345,7 +388,10 @@ export function ReportRequirementsPanel({ kind }: { kind: ReportKind }) {
                 <span>Campos esperados</span>
                 <div className="requirements-tags">
                   {group.fields.map((field) => (
-                    <small key={field}>{field}</small>
+                    <small key={field.name}>
+                      <strong>{field.name}</strong>
+                      {field.note ? <span>{field.note}</span> : null}
+                    </small>
                   ))}
                 </div>
               </div>

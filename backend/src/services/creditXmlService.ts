@@ -3,6 +3,7 @@ import path from "node:path";
 import { database } from "../config/database.js";
 import type { CreditXmlExportSummary } from "../models/report.js";
 import { HttpError } from "../utils/httpError.js";
+import { encodeXmlContent, type XmlCharset } from "../utils/xmlEncoding.js";
 import { creditReportColumns, type CreditReportColumn } from "./creditReportMapping.js";
 import { salesReportColumns } from "./salesReportMapping.js";
 
@@ -38,12 +39,17 @@ type CreditXmlAccessScope = {
 };
 
 type XmlReportConfig = {
+  amountFormat: "fixed-2" | "rounded-integer";
   columns: CreditReportColumn[];
+  defaultVehicleArmorLevel: string | null;
+  includeBranchName: boolean;
+  includeVehicleRegistryFields: boolean;
   notFoundMessage: string;
   operationKind: "credit" | "sales";
   registryTable: "informe_credito_registros" | "informe_venta_registros";
   reportType: "creditos" | "ventas";
   schemaFileName: "mpc.xsd" | "veh.xsd";
+  xmlEncoding: XmlCharset;
   namespace: string;
   xmlExportTable: "credit_xml_exports" | "sales_xml_exports";
   xmlFilePrefix: "MPC" | "VEH";
@@ -51,12 +57,17 @@ type XmlReportConfig = {
 };
 
 const creditXmlConfig: XmlReportConfig = {
+  amountFormat: "rounded-integer",
   columns: creditReportColumns,
+  defaultVehicleArmorLevel: null,
+  includeBranchName: false,
+  includeVehicleRegistryFields: false,
   notFoundMessage: "Carga de creditos no encontrada",
   operationKind: "credit",
   registryTable: "informe_credito_registros",
   reportType: "creditos",
   schemaFileName: "mpc.xsd",
+  xmlEncoding: "windows-1252",
   namespace: "http://www.uif.shcp.gob.mx/recepcion/mpc",
   xmlExportTable: "credit_xml_exports",
   xmlFilePrefix: "MPC",
@@ -64,12 +75,17 @@ const creditXmlConfig: XmlReportConfig = {
 };
 
 const salesXmlConfig: XmlReportConfig = {
+  amountFormat: "fixed-2",
   columns: salesReportColumns,
+  defaultVehicleArmorLevel: "9",
+  includeBranchName: false,
+  includeVehicleRegistryFields: false,
   notFoundMessage: "Carga de ventas no encontrada",
   operationKind: "sales",
   registryTable: "informe_venta_registros",
   reportType: "ventas",
   schemaFileName: "veh.xsd",
+  xmlEncoding: "windows-1252",
   namespace: "http://www.uif.shcp.gob.mx/recepcion/veh",
   xmlExportTable: "sales_xml_exports",
   xmlFilePrefix: "VEH",
@@ -114,11 +130,18 @@ const formatDate = (value: unknown) => {
   return normalizeXmlText(text);
 };
 
-const formatAmount = (value: unknown) => {
+const formatAmount = (
+  value: unknown,
+  amountFormat: XmlReportConfig["amountFormat"]
+) => {
   const numberValue = Number(String(value ?? "").replaceAll(",", ""));
 
   if (!Number.isFinite(numberValue)) {
     return normalizeXmlText(value);
+  }
+
+  if (amountFormat === "rounded-integer") {
+    return `${Math.round(numberValue).toFixed(2)}`;
   }
 
   return numberValue.toFixed(2);
@@ -159,13 +182,17 @@ const escapeXml = (value: string) =>
 
 type XmlValueFormat = "text" | "date" | "amount" | "integer";
 
-const formatXmlValue = (value: unknown, format: XmlValueFormat) => {
+const formatXmlValue = (
+  value: unknown,
+  format: XmlValueFormat,
+  amountFormat: XmlReportConfig["amountFormat"]
+) => {
   if (format === "date") {
     return formatDate(value);
   }
 
   if (format === "amount") {
-    return formatAmount(value);
+    return formatAmount(value, amountFormat);
   }
 
   if (format === "integer") {
@@ -176,8 +203,14 @@ const formatXmlValue = (value: unknown, format: XmlValueFormat) => {
 };
 
 class XmlBuilder {
-  private readonly lines: string[] = ['<?xml version="1.0" encoding="UTF-8"?>'];
+  private readonly lines: string[];
+  private readonly amountFormat: XmlReportConfig["amountFormat"];
   private level = 0;
+
+  constructor(config: Pick<XmlReportConfig, "amountFormat" | "xmlEncoding">) {
+    this.amountFormat = config.amountFormat;
+    this.lines = [`<?xml version="1.0" encoding="${config.xmlEncoding}"?>`];
+  }
 
   open(name: string, attributes?: Record<string, string>) {
     const attrs = attributes
@@ -199,6 +232,10 @@ class XmlBuilder {
     this.lines.push(`${this.indent()}<${name}>${escapeXml(value)}</${name}>`);
   }
 
+  formatValue(value: unknown, format: XmlValueFormat) {
+    return formatXmlValue(value, format, this.amountFormat);
+  }
+
   toString() {
     return `${this.lines.join("\n")}\n`;
   }
@@ -218,7 +255,7 @@ const appendTag = (
     return;
   }
 
-  xml.tag(name, formatXmlValue(value, format));
+  xml.tag(name, xml.formatValue(value, format));
 };
 
 const hasAny = (row: CreditReportRow, columns: string[]) =>
@@ -531,12 +568,18 @@ const appendDatosLiquidacion = (xml: XmlBuilder, row: CreditReportRow) => {
   xml.close("datos_liquidacion");
 };
 
-const appendCreditDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
+const appendCreditDetalleOperaciones = (
+  xml: XmlBuilder,
+  row: CreditReportRow,
+  config: XmlReportConfig
+) => {
   xml.open("detalle_operaciones");
   xml.open("datos_operacion");
   appendTag(xml, "fecha_operacion", row.fecha, "date");
   appendTag(xml, "codigo_postal", row.codigo_postal_agencia);
-  appendTag(xml, "nombre_sucursal", row.nombre_sucursal);
+  if (config.includeBranchName) {
+    appendTag(xml, "nombre_sucursal", row.nombre_sucursal);
+  }
   appendTag(xml, "tipo_operacion", row.tipo_operacion, "integer");
   appendDatosGarantia(xml, row);
   appendDatosLiquidacion(xml, row);
@@ -544,7 +587,11 @@ const appendCreditDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) =
   xml.close("detalle_operaciones");
 };
 
-const appendSalesDatosVehiculo = (xml: XmlBuilder, row: CreditReportRow) => {
+const appendSalesDatosVehiculo = (
+  xml: XmlBuilder,
+  row: CreditReportRow,
+  config: XmlReportConfig
+) => {
   const columns = ["marca_fabricante", "modelo", "anio_vehiculo", "vin", "repuve", "placas"];
 
   if (!hasAny(row, columns)) {
@@ -557,8 +604,11 @@ const appendSalesDatosVehiculo = (xml: XmlBuilder, row: CreditReportRow) => {
   appendTag(xml, "modelo", row.modelo);
   appendTag(xml, "anio", row.anio_vehiculo, "integer");
   appendTag(xml, "vin", row.vin);
-  appendTag(xml, "repuve", row.repuve);
-  appendTag(xml, "placas", row.placas);
+  if (config.includeVehicleRegistryFields) {
+    appendTag(xml, "repuve", row.repuve);
+    appendTag(xml, "placas", row.placas);
+  }
+  appendTag(xml, "nivel_blindaje", config.defaultVehicleArmorLevel, "integer");
   xml.close("datos_vehiculo_terrestre");
   xml.close("tipo_vehiculo");
 };
@@ -589,13 +639,17 @@ const appendSalesDatosLiquidacion = (xml: XmlBuilder, row: CreditReportRow) => {
   xml.close("datos_liquidacion");
 };
 
-const appendSalesDetalleOperaciones = (xml: XmlBuilder, row: CreditReportRow) => {
+const appendSalesDetalleOperaciones = (
+  xml: XmlBuilder,
+  row: CreditReportRow,
+  config: XmlReportConfig
+) => {
   xml.open("detalle_operaciones");
   xml.open("datos_operacion");
   appendTag(xml, "fecha_operacion", row.fecha, "date");
   appendTag(xml, "codigo_postal", row.codigo_postal_agencia);
   appendTag(xml, "tipo_operacion", row.tipo_operacion, "integer");
-  appendSalesDatosVehiculo(xml, row);
+  appendSalesDatosVehiculo(xml, row, config);
   appendSalesDatosLiquidacion(xml, row);
   xml.close("datos_operacion");
   xml.close("detalle_operaciones");
@@ -607,11 +661,11 @@ const appendDetalleOperaciones = (
   config: XmlReportConfig
 ) => {
   if (config.operationKind === "sales") {
-    appendSalesDetalleOperaciones(xml, row);
+    appendSalesDetalleOperaciones(xml, row, config);
     return;
   }
 
-  appendCreditDetalleOperaciones(xml, row);
+  appendCreditDetalleOperaciones(xml, row, config);
 };
 
 const buildReferenceAviso = (row: CreditReportRow) => {
@@ -664,7 +718,7 @@ const buildCreditXml = (
   const firstRow = rows[0];
   const reportMonth =
     firstRow?.mes_reporte ?? `${upload.anio_afectacion}${pad(upload.mes_afectacion)}`;
-  const xml = new XmlBuilder();
+  const xml = new XmlBuilder(config);
 
   xml.open("archivo", {
     "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -760,7 +814,7 @@ const generateXml = async (
   const absolutePath = path.join(xmlDirectory, fileName);
 
   await mkdir(xmlDirectory, { recursive: true });
-  await writeFile(absolutePath, xmlContent, "utf8");
+  await writeFile(absolutePath, encodeXmlContent(xmlContent, config.xmlEncoding));
 
   const insertResult = await database.query<CreditXmlExportRecord>(
     `INSERT INTO ${config.xmlExportTable} (
@@ -853,7 +907,8 @@ const getXmlExportForDownload = async (
   return {
     id: xmlExport.id,
     fileName: xmlExport.file_name,
-    xmlContent: xmlExport.xml_content
+    xmlContent: xmlExport.xml_content,
+    xmlEncoding: config.xmlEncoding
   };
 };
 

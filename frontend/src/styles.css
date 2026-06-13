@@ -1638,14 +1638,38 @@ p {
 .requirements-tags small {
   min-height: 32px;
   display: inline-grid;
-  place-items: center;
   border: 1px solid #d9e0e8;
-  border-radius: 999px;
-  padding: 7px 12px;
+  border-radius: 10px;
+  padding: 8px 12px;
   color: var(--ink);
   background: #ffffff;
   font-size: 0.78rem;
   font-weight: 760;
+}
+
+.requirements-form-tags span {
+  place-items: center;
+}
+
+.requirements-tags small {
+  gap: 4px;
+  align-content: start;
+  justify-items: start;
+  min-width: 170px;
+}
+
+.requirements-tags small strong {
+  color: var(--black);
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.requirements-tags small span {
+  color: var(--muted);
+  font-size: 0.71rem;
+  font-weight: 760;
+  line-height: 1.35;
+  text-transform: none;
 }
 
 .requirements-grid {
@@ -1654,6 +1678,7 @@ p {
   gap: 16px;
 }
 
+.requirements-processing-card,
 .requirements-card {
   display: grid;
   gap: 16px;
@@ -1663,6 +1688,19 @@ p {
   background: rgba(255, 255, 255, 0.92);
 }
 
+.requirements-processing-card {
+  border-left: 4px solid var(--autocom-red);
+}
+
+.requirements-panel.report-type-ventas .requirements-processing-card {
+  border-left-color: var(--report-sales);
+}
+
+.requirements-panel.report-type-creditos .requirements-processing-card {
+  border-left-color: var(--report-credit);
+}
+
+.requirements-processing-card h3,
 .requirements-card h3 {
   margin: 0;
   color: var(--black);

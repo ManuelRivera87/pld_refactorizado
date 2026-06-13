@@ -19,6 +19,7 @@ import {
   listReportUploads
 } from "../services/reportUploadService.js";
 import { HttpError } from "../utils/httpError.js";
+import { encodeXmlContent } from "../utils/xmlEncoding.js";
 
 type UploadRequest = AuthenticatedRequest & {
   file?: Express.Multer.File;
@@ -161,12 +162,15 @@ export const downloadCreditXmlController = async (
   );
   const safeFileName = xmlExport.fileName.replace(/[\r\n"]/g, "");
 
-  response.setHeader("Content-Type", "application/xml; charset=utf-8");
+  response.setHeader(
+    "Content-Type",
+    `application/xml; charset=${xmlExport.xmlEncoding}`
+  );
   response.setHeader(
     "Content-Disposition",
     `attachment; filename="${safeFileName}"`
   );
-  response.send(xmlExport.xmlContent);
+  response.send(encodeXmlContent(xmlExport.xmlContent, xmlExport.xmlEncoding));
 };
 
 export const downloadSalesXmlController = async (
@@ -186,12 +190,15 @@ export const downloadSalesXmlController = async (
   );
   const safeFileName = xmlExport.fileName.replace(/[\r\n"]/g, "");
 
-  response.setHeader("Content-Type", "application/xml; charset=utf-8");
+  response.setHeader(
+    "Content-Type",
+    `application/xml; charset=${xmlExport.xmlEncoding}`
+  );
   response.setHeader(
     "Content-Disposition",
     `attachment; filename="${safeFileName}"`
   );
-  response.send(xmlExport.xmlContent);
+  response.send(encodeXmlContent(xmlExport.xmlContent, xmlExport.xmlEncoding));
 };
 
 export const downloadLeaseXmlController = async (

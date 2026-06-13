@@ -1,0 +1,2911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archivo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uif.shcp.gob.mx/recepcion/mpc mpc.xsd" xmlns="http://www.uif.shcp.gob.mx/recepcion/mpc">
+  <informe>
+    <mes_reportado>202605</mes_reportado>
+    <sujeto_obligado>
+      <clave_sujeto_obligado>ARG090730B28</clave_sujeto_obligado>
+      <clave_actividad>MPC</clave_actividad>
+    </sujeto_obligado>
+    <aviso>
+      <referencia_aviso>2026051</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ROBERTO</nombre>
+            <apellido_paterno>GARNICA</apellido_paterno>
+            <apellido_materno>OROZCO</apellido_materno>
+            <fecha_nacimiento>19640808</fecha_nacimiento>
+            <rfc>GAOR640808M15</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7140200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EL PROGRESO</colonia>
+            <calle>PUEBLA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>38820</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5527296852</numero_telefono>
+          <correo_electronico>ROBERTO640808@OUTLOOK.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>58260</codigo_postal>
+          <nombre_sucursal>CHAPULTEPEC</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>344946.69</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026052</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>CARLOS ALBERT</nombre>
+            <apellido_paterno>MELO</apellido_paterno>
+            <apellido_materno>ZURITA</apellido_materno>
+            <fecha_nacimiento>19880318</fecha_nacimiento>
+            <rfc>MEZC880318FTA</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7540100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LA CONCEPCION</colonia>
+            <calle>BENITO JUAREZ</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>57</numero_interior>
+            <codigo_postal>58840</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4432652125</numero_telefono>
+          <correo_electronico>CARLITOSZUME@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>58150</codigo_postal>
+          <nombre_sucursal>MADERO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>543491.73</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026053</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ABIGAIL</nombre>
+            <apellido_paterno>LIMA</apellido_paterno>
+            <apellido_materno>BRITO</apellido_materno>
+            <fecha_nacimiento>20040620</fecha_nacimiento>
+            <rfc>LIBA040620NG2</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>MISION BUCARELI SUR</colonia>
+            <calle>AV CERRO SOMBRERETE</calle>
+            <numero_exterior>1</numero_exterior>
+            <numero_interior>1198</numero_interior>
+            <codigo_postal>76125</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421331042</numero_telefono>
+          <correo_electronico>ABICANXX31@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>76230</codigo_postal>
+          <nombre_sucursal>JURIQUILLA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>198888.95</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026054</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>GAEL</nombre>
+            <apellido_paterno>IBARRA</apellido_paterno>
+            <apellido_materno>HERRERA</apellido_materno>
+            <fecha_nacimiento>20050829</fecha_nacimiento>
+            <rfc>IAHG050829BH0</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7210100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CENTRO HISTORICO</colonia>
+            <calle>IGNACIO ZARAGOZA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>37</numero_interior>
+            <codigo_postal>58000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>7531041537</numero_telefono>
+          <correo_electronico>GAELITOJEJESIUU@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>58260</codigo_postal>
+          <nombre_sucursal>CHAPULTEPEC</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>200160.51</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026055</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ALMA DELIA</nombre>
+            <apellido_paterno>BELTRAN</apellido_paterno>
+            <apellido_materno>GONZALEZ</apellido_materno>
+            <fecha_nacimiento>19651218</fecha_nacimiento>
+            <rfc>BEGA6512181R7</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CUMBRES DEL MIRADOR</colonia>
+            <calle>MIRADOR DE LAS CUMBRES</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>66</numero_interior>
+            <codigo_postal>76060</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4424124421</numero_telefono>
+          <correo_electronico>ALMA.DBG@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>76178</codigo_postal>
+          <nombre_sucursal>CLIKAUTO QUERETARO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>201136.25</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026056</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>SUSANA</nombre>
+            <apellido_paterno>GARCIA</apellido_paterno>
+            <apellido_materno>LOPEZ</apellido_materno>
+            <fecha_nacimiento>19751203</fecha_nacimiento>
+            <rfc>GALS751203SE2</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>AMPLIACION LOS MANANTIALES</colonia>
+            <calle>MITZITA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>444</numero_interior>
+            <codigo_postal>58188</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4431938671</numero_telefono>
+          <correo_electronico>SUSANADORAPOLLO1975@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260519</fecha_operacion>
+          <codigo_postal>58150</codigo_postal>
+          <nombre_sucursal>MADERO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310515</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>209198.02</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026057</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>SANDRA ELIZABETH</nombre>
+            <apellido_paterno>VARGAS</apellido_paterno>
+            <apellido_materno>LIRA</apellido_materno>
+            <fecha_nacimiento>19640117</fecha_nacimiento>
+            <rfc>VALS6401179XA</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1135030</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>ANAHUAC I SECCION</colonia>
+            <calle>MARINA NACIONAL</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>329</numero_interior>
+            <codigo_postal>11320</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5554092891</numero_telefono>
+          <correo_electronico>SANDY246316@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260509</fecha_operacion>
+          <codigo_postal>03100</codigo_postal>
+          <nombre_sucursal>HONDA UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290507</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>213141.47</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026058</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MARIBEL</nombre>
+            <apellido_paterno>PEREZ</apellido_paterno>
+            <apellido_materno>VAZQUEZ</apellido_materno>
+            <fecha_nacimiento>19960415</fecha_nacimiento>
+            <rfc>PEVM960415G99</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>PARQUE INDUSTRIAL EL MARQUES</colonia>
+            <calle>CTO EL MARQUES NTEMSANTIAGO DE QUERETARO</calle>
+            <numero_exterior>25</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>76246</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4423606736</numero_telefono>
+          <correo_electronico>BEATRIZ.TREJO@AUTOLIV.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260527</fecha_operacion>
+          <codigo_postal>76178</codigo_postal>
+          <nombre_sucursal>LA CAPILLA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310525</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>215183.16</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>2026059</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MARIA OLGA</nombre>
+            <apellido_paterno>GONZALEZ</apellido_paterno>
+            <apellido_materno>ANDABLO</apellido_materno>
+            <fecha_nacimiento>19710831</fecha_nacimiento>
+            <rfc>GOAO7108312W0</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>PARQUE INDUSTRIAL POLIGONO EMPRESARIAL</colonia>
+            <calle>AV HERCULES</calle>
+            <numero_exterior>36</numero_exterior>
+            <numero_interior>500</numero_interior>
+            <codigo_postal>76220</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4461381298</numero_telefono>
+          <correo_electronico>OLGAGLEZ31@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260519</fecha_operacion>
+          <codigo_postal>76099</codigo_postal>
+          <nombre_sucursal>KIA CORREGIDORA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310518</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>215956.12</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260510</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JOSE HUMBERTO</nombre>
+            <apellido_paterno>VIVANCO</apellido_paterno>
+            <apellido_materno>YANEZ</apellido_materno>
+            <fecha_nacimiento>19790201</fecha_nacimiento>
+            <rfc>VIYH790201Q19</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EPIGMENIO GONZALEZ EL OASIS</colonia>
+            <calle>CERRO DEL SOMBRERETE</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>1199</numero_interior>
+            <codigo_postal>76147</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421561916</numero_telefono>
+          <correo_electronico>JHUMBERVIVANCO@LIVE.COM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260525</fecha_operacion>
+          <codigo_postal>76130</codigo_postal>
+          <nombre_sucursal>BERNARDO QUINTANA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310523</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>216167.31</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260511</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RAQUEL</nombre>
+            <apellido_paterno>SANCHEZ</apellido_paterno>
+            <apellido_materno>MIRANDA</apellido_materno>
+            <fecha_nacimiento>19750119</fecha_nacimiento>
+            <rfc>SAMR750119JV8</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8230300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CENTRO HISTORICO</colonia>
+            <calle>AV MADERO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>1209</numero_interior>
+            <codigo_postal>58000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4433854608</numero_telefono>
+          <correo_electronico>RAQUELITOLITRO@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260505</fecha_operacion>
+          <codigo_postal>58260</codigo_postal>
+          <nombre_sucursal>CHAPULTEPEC</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310501</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>219564.96</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260512</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>DIEGO</nombre>
+            <apellido_paterno>MARTINEZ</apellido_paterno>
+            <apellido_materno>GOMEZ</apellido_materno>
+            <fecha_nacimiento>19890119</fecha_nacimiento>
+            <rfc>MAGD8901194X7</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>6120200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LA FLORIDA</colonia>
+            <calle>CARRETERA LA ORILLA LIBRAMIENTO A SICARTSA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>60956</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4523047747</numero_telefono>
+          <correo_electronico>RIKKERSON901@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>60180</codigo_postal>
+          <nombre_sucursal>URUAPAN</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>220072.56</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260513</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>DANIELA</nombre>
+            <apellido_paterno>ESPINOSA</apellido_paterno>
+            <apellido_materno>CALDERON</apellido_materno>
+            <fecha_nacimiento>20020823</fecha_nacimiento>
+            <rfc>EICD020823Q68</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>JICALAN LA PINERITA</colonia>
+            <calle>CARRETERA URUAPAN SAN JUAN NUEVO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>4100</numero_interior>
+            <codigo_postal>60090</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4525038136</numero_telefono>
+          <correo_electronico>DANIESPINOSA2308@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>60180</codigo_postal>
+          <nombre_sucursal>URUAPAN</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>220835.18</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260514</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>GUADALUPE DE JESUS</nombre>
+            <apellido_paterno>CASAS</apellido_paterno>
+            <apellido_materno>GUTIERREZ</apellido_materno>
+            <fecha_nacimiento>19981102</fecha_nacimiento>
+            <rfc>CAGG981102666</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>GALERAS</colonia>
+            <calle>CARRETERA ESTATAL 200 QUERETARO TEQUISQUIAPAN</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>76295</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4411179908</numero_telefono>
+          <correo_electronico>GCASAS.DEPAD.CO@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260521</fecha_operacion>
+          <codigo_postal>76807</codigo_postal>
+          <nombre_sucursal>SAN JUAN DEL RIO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20300519</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>222235.45</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260515</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>NESTOR MANUEL</nombre>
+            <apellido_paterno>ORTIZ</apellido_paterno>
+            <apellido_materno>VAQUERO</apellido_materno>
+            <fecha_nacimiento>19900904</fecha_nacimiento>
+            <rfc>OIVN900904IE8</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>4230200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>XOCOYAHUALCO</colonia>
+            <calle>CDA DE MORELOS</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>7</numero_interior>
+            <codigo_postal>54080</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5610640601</numero_telefono>
+          <correo_electronico>NESVAORTZ@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260508</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310506</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>223681.40</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260516</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ANGIE DEYANIRA</nombre>
+            <apellido_paterno>CORTES</apellido_paterno>
+            <apellido_materno>JORDAN</apellido_materno>
+            <fecha_nacimiento>19890107</fecha_nacimiento>
+            <rfc>COJX890107KV2</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CENTRO SUR</colonia>
+            <calle>BOULEVARD BERNARDO QUINTANA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>9670</numero_interior>
+            <codigo_postal>76090</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5532017815</numero_telefono>
+          <correo_electronico>ANGIECORTESJORDAN.07@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260513</fecha_operacion>
+          <codigo_postal>76178</codigo_postal>
+          <nombre_sucursal>CLIKAUTO QUERETARO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310513</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>224994.96</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260517</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JAVIER</nombre>
+            <apellido_paterno>MARTINEZ</apellido_paterno>
+            <apellido_materno>QUIROS</apellido_materno>
+            <fecha_nacimiento>19770723</fecha_nacimiento>
+            <rfc>MAQJ770723QP1</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>5731100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>PARQUE INDUSTRIAL SANTA FE</colonia>
+            <calle>CIRCUITO SAN ROQUE PUERTO INTERIOR</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>423</numero_interior>
+            <codigo_postal>36275</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4791403268</numero_telefono>
+          <correo_electronico>QUIROZJAVIER927@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260522</fecha_operacion>
+          <codigo_postal>37500</codigo_postal>
+          <nombre_sucursal>KIA POLIFORUM</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310521</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>226261.87</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260518</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ERIKA CONSUELO</nombre>
+            <apellido_paterno>BONFIGLIO</apellido_paterno>
+            <apellido_materno>ZINTZUN</apellido_materno>
+            <fecha_nacimiento>19870812</fecha_nacimiento>
+            <rfc>BOZE870812FF0</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4427764043</numero_telefono>
+          <correo_electronico>BZERIKA910@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>38044</codigo_postal>
+          <nombre_sucursal>CHANGAN CELAYA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>235364.20</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260519</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>DIANA GUADALUPE</nombre>
+            <apellido_paterno>SALINAS</apellido_paterno>
+            <apellido_materno>VIDAL</apellido_materno>
+            <fecha_nacimiento>19941203</fecha_nacimiento>
+            <rfc>SAVD941203H46</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SAN JOSE ITURBIDE CENTRO</colonia>
+            <calle>CAMINO AL JOVERO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>37980</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5586087634</numero_telefono>
+          <correo_electronico>DIANAGMORS@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>76099</codigo_postal>
+          <nombre_sucursal>KIA CORREGIDORA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>247354.17</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260520</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ESPERANZA</nombre>
+            <apellido_paterno>LOPEZ</apellido_paterno>
+            <apellido_materno>FRANCO</apellido_materno>
+            <fecha_nacimiento>19730923</fecha_nacimiento>
+            <rfc>LOFE730923780</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>4530200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC I SECCION</colonia>
+            <calle>PASEO DE LAS PALMAS</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>275</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5540450185</numero_telefono>
+          <correo_electronico>HOPE_FRANCO@MSN.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260507</fecha_operacion>
+          <codigo_postal>03800</codigo_postal>
+          <nombre_sucursal>NISSAN PATRIOTISMO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20280505</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>250222.99</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260521</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>FANNY MARIEL</nombre>
+            <apellido_paterno>VALLEJO</apellido_paterno>
+            <apellido_materno>GALVAN</apellido_materno>
+            <fecha_nacimiento>19960213</fecha_nacimiento>
+            <rfc>VAGF960213LX4</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>GUADALUPE</colonia>
+            <calle>BLVD ADOLFO LOPEZ MATEOS</calle>
+            <numero_exterior>A</numero_exterior>
+            <numero_interior>2605</numero_interior>
+            <codigo_postal>37289</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4792300803</numero_telefono>
+          <correo_electronico>VALLEJOMARIEL809@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260518</fecha_operacion>
+          <codigo_postal>37500</codigo_postal>
+          <nombre_sucursal>KIA POLIFORUM</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310516</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>252084.36</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260522</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ABIMAEL</nombre>
+            <apellido_paterno>GRANILLO</apellido_paterno>
+            <apellido_materno>ZARAGOZA</apellido_materno>
+            <fecha_nacimiento>19910613</fecha_nacimiento>
+            <rfc>GAZA910613BG3</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1136070</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LAGO DE GUADALUPE</colonia>
+            <calle>CISNES</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>MZ 033</numero_interior>
+            <codigo_postal>54760</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5567061154</numero_telefono>
+          <correo_electronico>GAZA_ABI@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260509</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310508</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>257847.19</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260523</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>GABRIELA EDITH</nombre>
+            <apellido_paterno>MOLINA</apellido_paterno>
+            <apellido_materno>REYES</apellido_materno>
+            <fecha_nacimiento>19870324</fecha_nacimiento>
+            <rfc>MORG870324G37</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>9120700</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EX HACIENDA DE XALPA</colonia>
+            <calle>EX HACIENDA DEL VERGEL</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>39</numero_interior>
+            <codigo_postal>54683</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5511809031</numero_telefono>
+          <correo_electronico>GABRIELA.ZOEE20@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>259456.52</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260524</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>EDUARDO DAVID</nombre>
+            <apellido_paterno>CRUZ</apellido_paterno>
+            <apellido_materno>MEJIA</apellido_materno>
+            <fecha_nacimiento>19930302</fecha_nacimiento>
+            <rfc>CUME930302N28</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>5310700</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>XOCO</colonia>
+            <calle>AVE REAL MAYORAZGO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>130</numero_interior>
+            <codigo_postal>33300</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5614322196</numero_telefono>
+          <correo_electronico>EDUARDODAVIDCRUZ3@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260525</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310524</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>260943.60</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260525</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JOSE</nombre>
+            <apellido_paterno>ARRIOLA</apellido_paterno>
+            <apellido_materno>PLATA</apellido_materno>
+            <fecha_nacimiento>19870717</fecha_nacimiento>
+            <rfc>AIPJ870717NE0</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CAMPESTRE CHURUBUSCO</colonia>
+            <calle>AVENIDA CERRO DE LAS TORRES</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>395</numero_interior>
+            <codigo_postal>42000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4272003470</numero_telefono>
+          <correo_electronico>JOSE.APLATA87@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260527</fecha_operacion>
+          <codigo_postal>76120</codigo_postal>
+          <nombre_sucursal>RECAR MOTORS</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310525</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>265181.07</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260526</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>HECTOR</nombre>
+            <apellido_paterno>MORALES</apellido_paterno>
+            <apellido_materno>OLVERA</apellido_materno>
+            <fecha_nacimiento>19990629</fecha_nacimiento>
+            <rfc>MOOH990629KI8</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EL MILAGRO</colonia>
+            <calle>CAMINO A LA NORIA EL MILAGRO KM 2 6 PARCELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>42</numero_interior>
+            <codigo_postal>76981</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421291262</numero_telefono>
+          <correo_electronico>4K.MORALESHECTOR@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260508</fecha_operacion>
+          <codigo_postal>76178</codigo_postal>
+          <nombre_sucursal>LA CAPILLA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320504</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>265350.78</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260527</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ANA ELIZABETH</nombre>
+            <apellido_paterno>LANDEROS</apellido_paterno>
+            <apellido_materno>SANCHEZ</apellido_materno>
+            <fecha_nacimiento>19981029</fecha_nacimiento>
+            <rfc>LASA981029IN1</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8230300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SAN JUAN DE DIOS</colonia>
+            <calle>LOS REYES JACONA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>60330</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>3512095756</numero_telefono>
+          <correo_electronico>ANAELIZABETHLANDEROSSANCHEZ18@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260512</fecha_operacion>
+          <codigo_postal>59680</codigo_postal>
+          <nombre_sucursal>ZAMORA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310511</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>269418.62</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260528</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ERICK</nombre>
+            <apellido_paterno>SANCHEZ</apellido_paterno>
+            <apellido_materno>SANCHEZ</apellido_materno>
+            <fecha_nacimiento>19811202</fecha_nacimiento>
+            <rfc>SASE811202A66</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7130400</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SAN PEDRO DE LOS PINOS</colonia>
+            <calle>AV REVOLUCION</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>406</numero_interior>
+            <codigo_postal>38000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5626398772</numero_telefono>
+          <correo_electronico>ERICK.SANCHEZ@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260511</fecha_operacion>
+          <codigo_postal>03800</codigo_postal>
+          <nombre_sucursal>TOYOTA REVOLUCION</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310505</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>271449.98</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260529</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MONSERRAT</nombre>
+            <apellido_paterno>PALACIOS</apellido_paterno>
+            <apellido_materno>LOPEZ</apellido_materno>
+            <fecha_nacimiento>19950820</fecha_nacimiento>
+            <rfc>PALM950820EZ8</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7110200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOS HEROES TECAMAC II</colonia>
+            <calle>AV BOSQUES DEL EDO MEX</calle>
+            <numero_exterior>1</numero_exterior>
+            <numero_interior>5</numero_interior>
+            <codigo_postal>55764</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5583554362</numero_telefono>
+          <correo_electronico>MONSELOPEZ0895@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>271706.53</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260530</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JESUS ANTONIO</nombre>
+            <apellido_paterno>LOPEZ</apellido_paterno>
+            <apellido_materno>ALVARADO</apellido_materno>
+            <fecha_nacimiento>20001015</fecha_nacimiento>
+            <rfc>LOAJ001015I25</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SANTA BARBARA</colonia>
+            <calle>LIBRAMIENTO HUICHAPAN</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>KM 6</numero_interior>
+            <codigo_postal>42405</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>7731322106</numero_telefono>
+          <correo_electronico>JESUSLOPEZALVARA@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260515</fecha_operacion>
+          <codigo_postal>76807</codigo_postal>
+          <nombre_sucursal>SAN JUAN DEL RIO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20300513</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>273093.95</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260531</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RUBI</nombre>
+            <apellido_paterno>PURECO</apellido_paterno>
+            <apellido_materno>TORRES</apellido_materno>
+            <fecha_nacimiento>19931003</fecha_nacimiento>
+            <rfc>PUTR931003R44</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8230300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DEL VALLE</colonia>
+            <calle>CALZ BENITO JUAREZ</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>70</numero_interior>
+            <codigo_postal>60110</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4521154981</numero_telefono>
+          <correo_electronico>MARGAROMM@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>60180</codigo_postal>
+          <nombre_sucursal>URUAPAN</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>283240.85</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260532</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>GERARDO</nombre>
+            <apellido_paterno>ALVARO</apellido_paterno>
+            <apellido_materno>ALVARO</apellido_materno>
+            <fecha_nacimiento>19880825</fecha_nacimiento>
+            <rfc>AAAG880825GT5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>3130300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>VALLE DE LOS REYES</colonia>
+            <calle>CARRETERA YAJALON  TUMBALA KM 8 00</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>94</numero_interior>
+            <codigo_postal>58115</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4432170041</numero_telefono>
+          <correo_electronico>ING.GAA@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260528</fecha_operacion>
+          <codigo_postal>58150</codigo_postal>
+          <nombre_sucursal>MADERO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>284808.12</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260533</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ADRIAN</nombre>
+            <apellido_paterno>LANDEROS</apellido_paterno>
+            <apellido_materno>MIRANDA</apellido_materno>
+            <fecha_nacimiento>19930805</fecha_nacimiento>
+            <rfc>LAMA930805H68</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>5710200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LA ROMANA</colonia>
+            <calle>AV. HIDALGO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>52</numero_interior>
+            <codigo_postal>54030</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5511480388</numero_telefono>
+          <correo_electronico>ADRIAN_CITYZEN@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260506</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310504</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>287378.87</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260534</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ALMA LISSET</nombre>
+            <apellido_paterno>MELCHOR</apellido_paterno>
+            <apellido_materno>CARRASCO</apellido_materno>
+            <fecha_nacimiento>19961104</fecha_nacimiento>
+            <rfc>MECA961104L04</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240600</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>UNIDAD BARRIENTOS</colonia>
+            <calle>VIA GUSTAVO BAZ</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>4590</numero_interior>
+            <codigo_postal>54110</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5532096255</numero_telefono>
+          <correo_electronico>ALMC1196@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260522</fecha_operacion>
+          <codigo_postal>54080</codigo_postal>
+          <nombre_sucursal>BAZAR STA MONICA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310521</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>291062.69</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260535</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JOSE ALBERTO</nombre>
+            <apellido_paterno>HERNANDEZ</apellido_paterno>
+            <apellido_materno>AGUILAR</apellido_materno>
+            <fecha_nacimiento>20040128</fecha_nacimiento>
+            <rfc>HEAA040128UV0</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>CARRETAS</colonia>
+            <calle>AV CONSTITUYENTES OTE</calle>
+            <numero_exterior>0</numero_exterior>
+            <numero_interior>117</numero_interior>
+            <codigo_postal>76050</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4426765381</numero_telefono>
+          <correo_electronico>ALBERTO.HERNANDEZ@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>76050</codigo_postal>
+          <nombre_sucursal>CONSTITUYENTES</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>293880.34</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260536</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>YULIANA</nombre>
+            <apellido_paterno>BUCIO</apellido_paterno>
+            <apellido_materno>QUEZADA</apellido_materno>
+            <fecha_nacimiento>19901025</fecha_nacimiento>
+            <rfc>BUQY901025KY9</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1124070</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EL CARRIEL</colonia>
+            <calle>AV LAZARO CARDENAS SUR</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>52</numero_interior>
+            <codigo_postal>61760</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4251213015</numero_telefono>
+          <correo_electronico>YULIANABUCIO768@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>60180</codigo_postal>
+          <nombre_sucursal>URUAPAN</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>298065.57</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260537</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>OSVALDO</nombre>
+            <apellido_paterno>MORA</apellido_paterno>
+            <apellido_materno>BETANCOURT</apellido_materno>
+            <fecha_nacimiento>19630805</fecha_nacimiento>
+            <rfc>MOBO630805SB9</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1135030</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>COMERCIANTES</colonia>
+            <calle>CIRCUITO LAZARO CARDENAS</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>221</numero_interior>
+            <codigo_postal>76087</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421419585</numero_telefono>
+          <correo_electronico>MORAOSVALDO087@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260514</fecha_operacion>
+          <codigo_postal>76050</codigo_postal>
+          <nombre_sucursal>CONSTITUYENTES</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310513</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>298607.48</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260538</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>DIEGO</nombre>
+            <apellido_paterno>BALDERAS</apellido_paterno>
+            <apellido_materno>LUNA</apellido_materno>
+            <fecha_nacimiento>19920811</fecha_nacimiento>
+            <rfc>BALD920811CZ5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SANTA ROSA DE JAUREGUI</colonia>
+            <calle>AV. LA MONTANA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>102</numero_interior>
+            <codigo_postal>76220</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421683331</numero_telefono>
+          <correo_electronico>DBALDERAS500@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260530</fecha_operacion>
+          <codigo_postal>76050</codigo_postal>
+          <nombre_sucursal>CONSTITUYENTES</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>300046.25</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260539</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>LUIS RODRIGO</nombre>
+            <apellido_paterno>ESCOBEDO</apellido_paterno>
+            <apellido_materno>REYES</apellido_materno>
+            <fecha_nacimiento>19810622</fecha_nacimiento>
+            <rfc>EORL8106223F4</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SENTIMIENTOS DE LA NACION</colonia>
+            <calle>AV SIERVO DE LA MACION</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>1175</numero_interior>
+            <codigo_postal>58178</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4433251426</numero_telefono>
+          <correo_electronico>LURO2030@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260523</fecha_operacion>
+          <codigo_postal>58260</codigo_postal>
+          <nombre_sucursal>CHAPULTEPEC</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310523</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>302646.48</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260540</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MA EUGENIA</nombre>
+            <apellido_paterno>SANCHEZ</apellido_paterno>
+            <apellido_materno>HERNANDEZ</apellido_materno>
+            <fecha_nacimiento>19650205</fecha_nacimiento>
+            <rfc>SAHM650205FB3</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1135030</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>GOBERNANTES</colonia>
+            <calle>GOBERNANTES</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>21</numero_interior>
+            <codigo_postal>76100</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4423399977</numero_telefono>
+          <correo_electronico>DANYKBM@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260520</fecha_operacion>
+          <codigo_postal>76099</codigo_postal>
+          <nombre_sucursal>KIA CORREGIDORA</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310519</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>308345.30</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260541</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ANA CLAUDIA</nombre>
+            <apellido_paterno>MARTINEZ</apellido_paterno>
+            <apellido_materno>AGUILAR</apellido_materno>
+            <fecha_nacimiento>19851203</fecha_nacimiento>
+            <rfc>MAAA851203949</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>APASEO EL GRANDE CENTRO</colonia>
+            <calle>JAVIER USABIAGA ARROYO</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>102</numero_interior>
+            <codigo_postal>38160</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4428095603</numero_telefono>
+          <correo_electronico>ANACLAUDIA.MARTINEZ@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260526</fecha_operacion>
+          <codigo_postal>76120</codigo_postal>
+          <nombre_sucursal>RECAR MOTORS</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310522</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>315834.47</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260542</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RUBEN</nombre>
+            <apellido_paterno>BARRIOS</apellido_paterno>
+            <apellido_materno>GARCIA</apellido_materno>
+            <fecha_nacimiento>19581128</fecha_nacimiento>
+            <rfc>BAGR581128JM6</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1135030</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EL TRIUNFO</colonia>
+            <calle>CALZADA DE LA VIGA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>SIN NUMERO</numero_interior>
+            <codigo_postal>94300</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>7713068047</numero_telefono>
+          <correo_electronico>BARRIOS5842@YAHOO.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260512</fecha_operacion>
+          <codigo_postal>03800</codigo_postal>
+          <nombre_sucursal>NISSAN PATRIOTISMO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290511</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>316989.70</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260543</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>BLANCA FLOR</nombre>
+            <apellido_paterno>ALVEZ</apellido_paterno>
+            <apellido_materno>RODRIGUEZ</apellido_materno>
+            <fecha_nacimiento>19910413</fecha_nacimiento>
+            <rfc>AERB910413S88</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>EMILIANO ZAPATA</colonia>
+            <calle>PASEO DE LA REVOLUCION</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>2957</numero_interior>
+            <codigo_postal>60180</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4521157036</numero_telefono>
+          <correo_electronico>BFALVEZ_13@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260523</fecha_operacion>
+          <codigo_postal>60180</codigo_postal>
+          <nombre_sucursal>URUAPAN</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320523</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>324501.66</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260544</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JOSE REYNALDO</nombre>
+            <apellido_paterno>MARTINEZ</apellido_paterno>
+            <apellido_materno>REGOYTA</apellido_materno>
+            <fecha_nacimiento>19570507</fecha_nacimiento>
+            <rfc>MARJ570507UY6</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8250800</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>AZTECA</colonia>
+            <calle>TIZOC</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>130</numero_interior>
+            <codigo_postal>76085</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4421436631</numero_telefono>
+          <correo_electronico>JOSE57REYNALDO@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260515</fecha_operacion>
+          <codigo_postal>76178</codigo_postal>
+          <nombre_sucursal>CLIKAUTO QUERETARO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290513</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>337959.51</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260545</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MIGUEL ALEJANDRO</nombre>
+            <apellido_paterno>TORRES</apellido_paterno>
+            <apellido_materno>BECERRA</apellido_materno>
+            <fecha_nacimiento>19970731</fecha_nacimiento>
+            <rfc>TOBM970731844</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>6220100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LAS CAMPANAS</colonia>
+            <calle>INDUSTRIA MANUFACTURERA</calle>
+            <numero_exterior>B</numero_exterior>
+            <numero_interior>44</numero_interior>
+            <codigo_postal>43806</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5564155414</numero_telefono>
+          <correo_electronico>ALEJANDROBECERRA649@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260527</fecha_operacion>
+          <codigo_postal>72062</codigo_postal>
+          <nombre_sucursal>GO RIDERS</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20270523</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>343426.08</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260546</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MARIA MARGARITA</nombre>
+            <apellido_paterno>GARCIA</apellido_paterno>
+            <apellido_materno>DAGIO</apellido_materno>
+            <fecha_nacimiento>19700827</fecha_nacimiento>
+            <rfc>GADM700827821</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SANTA CRUZ ATOYAC</colonia>
+            <calle>BAHIA DE LAS PALMAS</calle>
+            <numero_exterior>0</numero_exterior>
+            <numero_interior>33</numero_interior>
+            <codigo_postal>33100</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5533317845</numero_telefono>
+          <correo_electronico>OPCIONES1970@HOTMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260521</fecha_operacion>
+          <codigo_postal>03100</codigo_postal>
+          <nombre_sucursal>HONDA UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310520</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>363968.27</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260547</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ALDO HUMBERTO</nombre>
+            <apellido_paterno>MONTES DE OCA</apellido_paterno>
+            <apellido_materno>PEREZ</apellido_materno>
+            <fecha_nacimiento>19960625</fecha_nacimiento>
+            <rfc>MOPA9606259R4</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>7130400</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>INDUSTRIAL LA PAZ</colonia>
+            <calle>AV. INDUSTRIAL LA PAZ</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>97</numero_interior>
+            <codigo_postal>42186</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>7712094417</numero_telefono>
+          <correo_electronico>JONAGR45@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260527</fecha_operacion>
+          <codigo_postal>01900</codigo_postal>
+          <nombre_sucursal>HONDA PEDREGAL</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310525</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>369800.62</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260548</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>LUIS ALFONSO</nombre>
+            <apellido_paterno>SANTILLAN</apellido_paterno>
+            <apellido_materno>MEJIA</apellido_materno>
+            <fecha_nacimiento>19860821</fecha_nacimiento>
+            <rfc>SAML860821UC6</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>1220200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SAN JOSE ITZICUARO</colonia>
+            <calle>MANUEL ALAS</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>79</numero_interior>
+            <codigo_postal>58336</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4437689272</numero_telefono>
+          <correo_electronico>LUISALFONSOSANTILLAN2@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260518</fecha_operacion>
+          <codigo_postal>58150</codigo_postal>
+          <nombre_sucursal>MADERO</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320518</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>489165.28</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260549</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>FRIDA ALEJANDRA</nombre>
+            <apellido_paterno>HERNANDEZ</apellido_paterno>
+            <apellido_materno>RAMIREZ</apellido_materno>
+            <fecha_nacimiento>19830105</fecha_nacimiento>
+            <rfc>HERF830105MV1</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8240200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>JARDINES DE SANTA CLARA</colonia>
+            <calle>PUERTO ALTATA</calle>
+            <numero_exterior>MZ326 LT 4</numero_exterior>
+            <numero_interior>5</numero_interior>
+            <codigo_postal>55450</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5562738810</numero_telefono>
+          <correo_electronico>FRIDAHERNANDEZ0583@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260506</fecha_operacion>
+          <codigo_postal>03100</codigo_postal>
+          <nombre_sucursal>HYUNDAI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320504</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>536231.85</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260550</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>HERIBERTO</nombre>
+            <apellido_paterno>FRANCISCO</apellido_paterno>
+            <apellido_materno>RODRIGUEZ</apellido_materno>
+            <fecha_nacimiento>19920415</fecha_nacimiento>
+            <rfc>FARH9204158Y1</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>9130300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SANTO TOMAS CHICONAUTLA</colonia>
+            <calle>CDA DE CUAUHTEMOC</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>10</numero_interior>
+            <codigo_postal>55066</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5569629674</numero_telefono>
+          <correo_electronico>DENTALCHIC04@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260518</fecha_operacion>
+          <codigo_postal>58260</codigo_postal>
+          <nombre_sucursal>CHAPULTEPEC</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310518</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>599745.44</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260551</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ANA KAREN</nombre>
+            <apellido_paterno>GALICIA</apellido_paterno>
+            <apellido_materno>GALICIA</apellido_materno>
+            <fecha_nacimiento>19950102</fecha_nacimiento>
+            <rfc>GAGA950102QV7</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <actividad_economica>8230300</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC I SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5510776222</numero_telefono>
+          <correo_electronico>AK.ANA.KAREN53@GMAIL.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260521</fecha_operacion>
+          <codigo_postal>03330</codigo_postal>
+          <nombre_sucursal>GWM UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20320519</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>606349.90</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260552</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>IMPORTADORA DE PRODUCTOS MEDICOS SA DE CV</denominacion_razon>
+            <fecha_constitucion>19941205</fecha_constitucion>
+            <rfc>IPM941205IL1</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4850007</giro_mercantil>
+            <representante_apoderado>
+              <nombre>JAVIER</nombre>
+              <apellido_paterno>NIEVES</apellido_paterno>
+              <apellido_materno>MORA</apellido_materno>
+              <fecha_nacimiento>19830421</fecha_nacimiento>
+              <curp>NIMJ830421HDFVRV04</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SAN JOSE INSURGENTES</colonia>
+            <calle>CLL SALOME PINA</calle>
+            <numero_exterior>DEP 2 LT PISO</numero_exterior>
+            <numero_interior>52</numero_interior>
+            <codigo_postal>39000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>5553228870</numero_telefono>
+          <correo_electronico>ALMARTINEZ@INTERMET.COM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>JAVIER</nombre>
+            <apellido_paterno>NIEVES</apellido_paterno>
+            <apellido_materno>MORA</apellido_materno>
+            <fecha_nacimiento>19830421</fecha_nacimiento>
+            <rfc>NIMJ830421288</rfc>
+            <curp>NIMJ830421HDFVRV04</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260527</fecha_operacion>
+          <codigo_postal>03800</codigo_postal>
+          <nombre_sucursal>TOYOTA REVOLUCION</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20290522</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>622265.90</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260553</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>AUTOCOM NOVA SAPI DE CV</denominacion_razon>
+            <fecha_constitucion>19980113</fecha_constitucion>
+            <rfc>ACQ980113CL5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4720006</giro_mercantil>
+            <representante_apoderado>
+              <nombre>RODRIGO</nombre>
+              <apellido_paterno>JIMENEZ</apellido_paterno>
+              <apellido_materno>URQUIZA</apellido_materno>
+              <fecha_nacimiento>19870702</fecha_nacimiento>
+              <curp>JIUR870702HQTMRD02</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4434009134</numero_telefono>
+          <correo_electronico>AIDE.ARGUELLES@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RODRIGO</nombre>
+            <apellido_paterno>JIMENEZ</apellido_paterno>
+            <apellido_materno>URQUIZA</apellido_materno>
+            <fecha_nacimiento>19870702</fecha_nacimiento>
+            <rfc>JIUR870702GQ0</rfc>
+            <curp>JIUR870702HQTMRD02</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>03104</codigo_postal>
+          <nombre_sucursal>INFINITI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>922600.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260554</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>AUTOCOM NOVA SAPI DE CV</denominacion_razon>
+            <fecha_constitucion>19980113</fecha_constitucion>
+            <rfc>ACQ980113CL5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4720006</giro_mercantil>
+            <representante_apoderado>
+              <nombre>RODRIGO</nombre>
+              <apellido_paterno>JIMENEZ</apellido_paterno>
+              <apellido_materno>URQUIZA</apellido_materno>
+              <fecha_nacimiento>19870702</fecha_nacimiento>
+              <curp>JIUR870702HQTMRD02</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4434009134</numero_telefono>
+          <correo_electronico>AIDE.ARGUELLES@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RODRIGO</nombre>
+            <apellido_paterno>JIMENEZ</apellido_paterno>
+            <apellido_materno>URQUIZA</apellido_materno>
+            <fecha_nacimiento>19870702</fecha_nacimiento>
+            <rfc>JIUR870702GQ0</rfc>
+            <curp>JIUR870702HQTMRD02</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>03104</codigo_postal>
+          <nombre_sucursal>INFINITI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>922600.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260555</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>AUTOCOM NOVA SAPI DE CV</denominacion_razon>
+            <fecha_constitucion>19980113</fecha_constitucion>
+            <rfc>ACQ980113CL5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4720006</giro_mercantil>
+            <representante_apoderado>
+              <nombre>RODRIGO</nombre>
+              <apellido_paterno>JIMENEZ</apellido_paterno>
+              <apellido_materno>URQUIZA</apellido_materno>
+              <fecha_nacimiento>19870702</fecha_nacimiento>
+              <curp>JIUR870702HQTMRD02</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4434009134</numero_telefono>
+          <correo_electronico>AIDE.ARGUELLES@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RODRIGO</nombre>
+            <apellido_paterno>JIMENEZ</apellido_paterno>
+            <apellido_materno>URQUIZA</apellido_materno>
+            <fecha_nacimiento>19870702</fecha_nacimiento>
+            <rfc>JIUR870702GQ0</rfc>
+            <curp>JIUR870702HQTMRD02</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>03104</codigo_postal>
+          <nombre_sucursal>INFINITI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>983200.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260556</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>AUTOCOM NOVA SAPI DE CV</denominacion_razon>
+            <fecha_constitucion>19980113</fecha_constitucion>
+            <rfc>ACQ980113CL5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4720006</giro_mercantil>
+            <representante_apoderado>
+              <nombre>RODRIGO</nombre>
+              <apellido_paterno>JIMENEZ</apellido_paterno>
+              <apellido_materno>URQUIZA</apellido_materno>
+              <fecha_nacimiento>19870702</fecha_nacimiento>
+              <curp>JIUR870702HQTMRD02</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4434009134</numero_telefono>
+          <correo_electronico>AIDE.ARGUELLES@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RODRIGO</nombre>
+            <apellido_paterno>JIMENEZ</apellido_paterno>
+            <apellido_materno>URQUIZA</apellido_materno>
+            <fecha_nacimiento>19870702</fecha_nacimiento>
+            <rfc>JIUR870702GQ0</rfc>
+            <curp>JIUR870702HQTMRD02</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>03104</codigo_postal>
+          <nombre_sucursal>INFINITI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>983200.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+    <aviso>
+      <referencia_aviso>20260557</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+        <descripcion_alerta>SIN ALERTA</descripcion_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_moral>
+            <denominacion_razon>AUTOCOM NOVA SAPI DE CV</denominacion_razon>
+            <fecha_constitucion>19980113</fecha_constitucion>
+            <rfc>ACQ980113CL5</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <giro_mercantil>4720006</giro_mercantil>
+            <representante_apoderado>
+              <nombre>RODRIGO</nombre>
+              <apellido_paterno>JIMENEZ</apellido_paterno>
+              <apellido_materno>URQUIZA</apellido_materno>
+              <fecha_nacimiento>19870702</fecha_nacimiento>
+              <curp>JIUR870702HQTMRD02</curp>
+            </representante_apoderado>
+          </persona_moral>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>LOMAS DE CHAPULTEPEC III SECCION</colonia>
+            <calle>SIERRA CANDELA</calle>
+            <numero_exterior>SIN NUMERO</numero_exterior>
+            <numero_interior>80</numero_interior>
+            <codigo_postal>11000</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>4434009134</numero_telefono>
+          <correo_electronico>AIDE.ARGUELLES@AUTOCOM.MX</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>RODRIGO</nombre>
+            <apellido_paterno>JIMENEZ</apellido_paterno>
+            <apellido_materno>URQUIZA</apellido_materno>
+            <fecha_nacimiento>19870702</fecha_nacimiento>
+            <rfc>JIUR870702GQ0</rfc>
+            <curp>JIUR870702HQTMRD02</curp>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>20260529</fecha_operacion>
+          <codigo_postal>03104</codigo_postal>
+          <nombre_sucursal>INFINITI UNIVERSIDAD</nombre_sucursal>
+          <tipo_operacion>401</tipo_operacion>
+          <datos_liquidacion>
+            <fecha_disposicion>20310601</fecha_disposicion>
+            <instrumento_monetario>8</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>1434700.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+  </informe>
+</archivo>
