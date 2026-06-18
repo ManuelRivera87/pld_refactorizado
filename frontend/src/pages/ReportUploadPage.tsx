@@ -6,7 +6,7 @@ import {
   RotateCcw,
   Upload
 } from "lucide-react";
-import { type FormEvent, useEffect, useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { listCompaniesRequest, type CompanyItem } from "../api/companiesApi";
 import {
   downloadCreditXmlRequest,
@@ -99,6 +99,7 @@ const formatValidationValue = (value: unknown) => {
 const getReportKindClass = (kind: ReportKind) => `report-type-${kind}`;
 
 export function ReportUploadPage({ kind }: ReportUploadPageProps) {
+  const activeKindRef = useRef(kind);
   const [companies, setCompanies] = useState<CompanyItem[]>([]);
   const [companyId, setCompanyId] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -132,6 +133,24 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     [companies, companyId]
   );
 
+  const resetTransientState = (clearFile = false) => {
+    setError("");
+    setValidationErrors([]);
+    setSuccess("");
+    setUploadSummary(null);
+    setXmlSummary(null);
+    setXmlError("");
+    setXmlDownloadError("");
+    setIsUploading(false);
+    setIsGeneratingXml(false);
+    setIsDownloadingXml(false);
+
+    if (clearFile) {
+      setFile(null);
+      setFileInputKey((currentKey) => currentKey + 1);
+    }
+  };
+
   useEffect(() => {
     const loadCompanies = async () => {
       setError("");
@@ -150,15 +169,16 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
     void loadCompanies();
   }, []);
 
+  useEffect(() => {
+    activeKindRef.current = kind;
+    resetTransientState(true);
+  }, [kind]);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    const requestKind = kind;
+
     event.preventDefault();
-    setError("");
-    setValidationErrors([]);
-    setSuccess("");
-    setUploadSummary(null);
-    setXmlSummary(null);
-    setXmlError("");
-    setXmlDownloadError("");
+    resetTransientState();
 
     if (!companyId || !file) {
       setError("Selecciona una empresa y un archivo XLS.");
@@ -200,20 +220,33 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
             file,
             mesAfectacion
           });
+
+      if (activeKindRef.current !== requestKind) {
+        return;
+      }
+
       setUploadSummary(summary);
       setXmlSummary(null);
       setSuccess(
-        `Informe de ${kind} cargado correctamente para ${summary.companyName}.`
+        `Informe de ${requestKind} cargado correctamente para ${summary.companyName}.`
       );
     } catch (nextError) {
+      if (activeKindRef.current !== requestKind) {
+        return;
+      }
+
       setError(getErrorMessage(nextError));
       setValidationErrors(getValidationErrors(nextError));
     } finally {
-      setIsUploading(false);
+      if (activeKindRef.current === requestKind) {
+        setIsUploading(false);
+      }
     }
   };
 
   const handleGenerateXml = async () => {
+    const requestKind = kind;
+
     if (!uploadSummary) {
       return;
     }
@@ -228,16 +261,27 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
         ? await generateSalesXmlRequest(uploadSummary.uploadId)
         : isLeaseReport
           ? await generateLeaseXmlRequest(uploadSummary.uploadId)
-        : await generateCreditXmlRequest(uploadSummary.uploadId);
+          : await generateCreditXmlRequest(uploadSummary.uploadId);
+
+      if (activeKindRef.current !== requestKind) {
+        return;
+      }
+
       setXmlSummary(summary);
     } catch (nextError) {
-      setXmlError(getErrorMessage(nextError));
+      if (activeKindRef.current === requestKind) {
+        setXmlError(getErrorMessage(nextError));
+      }
     } finally {
-      setIsGeneratingXml(false);
+      if (activeKindRef.current === requestKind) {
+        setIsGeneratingXml(false);
+      }
     }
   };
 
   const handleDownloadXml = async () => {
+    const requestKind = kind;
+
     if (!xmlSummary) {
       return;
     }
@@ -249,26 +293,27 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
       const blob = isSalesReport
         ? await downloadSalesXmlRequest(xmlSummary.id)
         : isLeaseReport
-          ? await downloadLeaseXmlRequest(xmlSummary.id)
+        ? await downloadLeaseXmlRequest(xmlSummary.id)
         : await downloadCreditXmlRequest(xmlSummary.id);
+
+      if (activeKindRef.current !== requestKind) {
+        return;
+      }
+
       downloadBlob(blob, xmlSummary.fileName);
     } catch (nextError) {
-      setXmlDownloadError(getErrorMessage(nextError));
+      if (activeKindRef.current === requestKind) {
+        setXmlDownloadError(getErrorMessage(nextError));
+      }
     } finally {
-      setIsDownloadingXml(false);
+      if (activeKindRef.current === requestKind) {
+        setIsDownloadingXml(false);
+      }
     }
   };
 
   const handleRetryUpload = () => {
-    setFile(null);
-    setFileInputKey((currentKey) => currentKey + 1);
-    setError("");
-    setValidationErrors([]);
-    setSuccess("");
-    setUploadSummary(null);
-    setXmlSummary(null);
-    setXmlError("");
-    setXmlDownloadError("");
+    resetTransientState(true);
   };
 
   return (
@@ -357,6 +402,7 @@ export function ReportUploadPage({ kind }: ReportUploadPageProps) {
                 key={fileInputKey}
                 onChange={(event) => {
                   setFile(event.target.files?.[0] ?? null);
+                  setError("");
                   setSuccess("");
                   setValidationErrors([]);
                   setUploadSummary(null);

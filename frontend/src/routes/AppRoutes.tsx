@@ -40,15 +40,15 @@ const protectedRoutes = [
   },
   {
     path: "/informes/ventas",
-    element: <ReportUploadPage kind="ventas" />
+    element: <ReportUploadPage key="ventas" kind="ventas" />
   },
   {
     path: "/informes/creditos",
-    element: <ReportUploadPage kind="creditos" />
+    element: <ReportUploadPage key="creditos" kind="creditos" />
   },
   {
     path: "/informes/arrendamientos",
-    element: <ReportUploadPage kind="arrendamientos" />
+    element: <ReportUploadPage key="arrendamientos" kind="arrendamientos" />
   },
   {
     path: "/informes/cargas",
